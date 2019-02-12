@@ -258,6 +258,6 @@ class Agent:
         else:
             delayed_reward = 0
         return self.immediate_reward, delayed_reward
-        # RLTrader는 지연 보상(delayed_reward)이 0이 아닌 경우 학습을 수행한다.
+        # RLTrader는 지연 보상(delayed_reward)이 0이 아닌! 경우 학습을 수행한다.
         # 즉 지연 보상 임계치를 초과하는 수익이 났으면 이전에 했던 행등들을 잘했다고 판단하여 긍정적으로(positive) 학습하고,
         # 지연 보상 임계치를 초과하는 손실이 났으면 이전 행동들에 문제가 있다고 판단하여 부정적으로(negative) 학습한다.

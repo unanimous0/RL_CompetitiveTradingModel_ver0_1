@@ -157,7 +157,7 @@ class Visualizer:
 
 
     # Figure 초기화
-    def clear(self, xlim):      # (입력으로 받는 xlim: 모든 차트의 x축 값 범위를 설정해 줄 튜플)
+    def clear(self, xlim):      # (입력으로 받는 xlim: 모든 차트의 x축 값 범위를 설정해 줄 튜플) --> 이때 xlim은 [0, len(self.chart_data)]이 된다.
         for ax in self.axes[1:]:
             ax.cla()        # matplotlib.pyplot.cla(): clear the current axes -->  학습 과정에서 변하지 않는 환경에 관한 차트(1번 차트)를 제외하고, 이 전에 그린 그 외의 차트들을 초기화한다.
             ax.relim()      # limit을 초기화한다. --> 이 전에 설정한 차트의 x축과 y축 값의 범위를 초기화한다.

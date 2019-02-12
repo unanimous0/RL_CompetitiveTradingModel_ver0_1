@@ -110,6 +110,7 @@ class PolicyLearner:
 
             # 메모리 초기화
             # TODO --> 탐험 위치 및 학습 위치, 정확히 어느 위치인지 잘 모르겠음 --> 체크 필수!
+            #       TODO --> Visualizer에서 만든 x축이 갖는 범위만큼의 idx들 중에서 탐험한 idx, 학습한 idx를 말하는 것.
             memory_sample = []          # 샘플
             memory_action = []          # 행동
             memory_reward = []          # 즉시 보상
@@ -119,8 +120,8 @@ class PolicyLearner:
             memory_exp_idx = []         # 탐험 위치
             memory_learning_idx = []    # 학습 위치
 
-            # 환경, 에이전트, 정책 신경망, 정책 학습기 초기화
-            self.environment.reset()
+            # 환경, 에이전트, 정책 신경망, 정책 학습기 초기화 (이 클래스들은 각자 reset 함수를 정의했었음 - 다른 클래스들은 따로 reset 메서드를 정의하지 않았음)
+            self.environment.reset()                                                    # (cf. Visualizer는 clear 함수로 초기화 함)
             self.agent.reset()
             self.policy_network.reset()
             self.reset()
@@ -130,9 +131,9 @@ class PolicyLearner:
 
             # 학습을 진행할 수록 탐험 비율 감소
             if learning:
-                epsilon = start_epsilon * (1. - (float(epoch) / (num_epoches - 1)))     # epoch의 수는 학습을 반복하며 계속 1씩 증가할 것 --> epsilon은 계속 감소한다.
-                # e = 1. / ((episode / 10) + 1)
-            else:
+                epsilon = start_epsilon * (1. - (float(epoch) / (num_epoches - 1)))     # epoch는 학습을 반복하며 계속 1씩 증가할 것 --> epsilon은 계속 감소한다.
+                # e = 1. / ((episode / 10) + 1)                                         # epoch / num_epoches는 학습 진행률을 의미하며,
+            else:                                                                       # num_epoches에서 1을 빼는 이유는 0부터 시작하기 때문이다. (표기는 1부터 시작하지만 실제 학습시에는 0부터 시작)
                 epsilon = 0
 
             # 학습 함수의 Epoch 수행 while문
