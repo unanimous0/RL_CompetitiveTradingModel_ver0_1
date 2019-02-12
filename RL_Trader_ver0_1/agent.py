@@ -135,6 +135,10 @@ class Agent:
         #     probs = policy_network.predict(sample)      # 각 행동에 대한 확률
         #     action = np.argmax(probs) if np.max(probs) >= 0.1 else Agent.ACTION_HOLD      # 이때의 threshold는 0.1이다.
         #     confidence = probs[action]
+        
+        # 유의사항:
+        #    만일 이런식으로 threshold를 줘버리면, visualizer에서 구현한 plot 함수에서 가지 값(매수 확률, 매도 확률) 중 하나를 argmax로 결정하고 있어,
+        #    실제로는 관망을 선택했음에도 visulaizer에서는 매수 또는 매도 중 하나를 선택해버리는 상황이 생길 수 있다.     
         """
 
         return action, confidence, exploration      # action: 결정한 행동, confidence: 결정에 대한 확신도, exploration: 무작위 투자 유무
