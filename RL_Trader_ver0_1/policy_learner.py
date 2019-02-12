@@ -33,36 +33,36 @@ class PolicyLearner:
 
         # 학습 데이터
         self.training_data = training_data
-        self.sample = None
+        self.sample = None      # 여기서 sample도 training_data와 같이 17차원
         self.training_data_idx = -1
 
-        # 정책 신경망의 Input layer에 들어오는 입력의 크기(17) = 학습 데이터의 크기(15) + 에이전트 상태의 크기(2)
-        # TODO --> self.training_data.shape의 [1]이 왜 학습 데이터의 크기인지 확인 --> shape가 2차원이면 (n,15)일 것이고, 여기서 행은 전체 갯수이고, 열의 갯수가 학습 데이터의 크기로 들어갈 특징의 갯수이겠지.
+        # 정책 신경망의 Input layer에 들어오는 입력의 크기 또는 특징의 수(17) = 학습 데이터의 크기(15) + 에이전트 상태의 크기(2)
+        # TODO --> self.training_data.shape의 [1]이 왜 학습 데이터의 크기인지 확인 --> shape가 2차원이면 (n,15)일 것이고, 여기서 행은 전체 갯수이고, 열의 갯수가 학습 데이터의 크기로 들어갈 특징의 갯수일 것이다.
         self.num_features = self.training_data.shape[1] + self.agent.STATE_DIM
         # 정책 신경망 객체
         self.policy_network = PolicyNetwork(input_dim=self.num_features,
                                             output_dim=self.agent.NUM_ACTIONS, l_rate=l_rate)
 
-        # 가시화기 객체 (에포크마다 투자결과 가시화)
+        # 가시화기 객체 (에포크마다 투자 결과 가시화)
         self.visualizer = Visualizer()
 
 
     # 에포크마다 호출하여 reset
     def reset(self):
-        self.sample = None
+        self.sample = None              # 읽어들인 데이터는 self.sample에 저장된다. 단, 이 초기화 단계에서는 읽어들인 데이터가 없으므로 None값을 갖는다.
         self.training_data_idx = -1     # 학습 데이터를 다시 처음부터 읽기 위해 -1로 재설정 (학습 데이터를 읽어가며 이 값은 1씩 증가하는데, 읽어 온 데이터는 self.sample에 저장된다.)
                                         # (초기화 단계에서는 읽어온 학습 데이터가 없기 때문에 self.sample을 None으로 할당한다.)
 
 
-    # fit()은 PolicyLearner 클래스의 핵심 함수
+    # fit() 메서드: PolicyLearner 클래스의 핵심 함수
     """
     fit()의 Elements
-    max_memory: 배치 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열
+    max_memory: 배치(batch) 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열
     balance: 에이전트의 초기 투자 자본금을 정해주기 위한 인자
-    discount_factor: 지연 보상이 발생했을 때 그 이전 지연 보상이 발생한 시점과 현재 지연 보상이 발생한 시점 사이에서 수행한 행동들 전체에 현재의 지연 보상을 적용한다.
-                     이때 과거로 갈수록 현재 지연 보상을 적용할 판단 근거가 흐려지기 때무에 먼 과거의 행동일수록 할인 요인을 적용하여 지연 보상을 약하게 적용한다.
+    discount_factor: !**지연 보상이 발생했을 때, 그 이전 지연 보상이 발생한 시점과 현재 지연 보상이 발생한 시점 사이에서 수행한 행동들 전체에 현재의! 지연 보상을 적용한다.
+                     이때 과거로 갈수록 현재 지연 보상을 적용할 판단 근거가 흐려지기 때문에, 먼 과거의 행동일수록 할인 요인(discout factor)을 적용하여 지연 보상을 약하게 적용한다.**!
     start_epsilon: 초기 탐험 비율 (학습이 되어 있지 않은 초기에 탐험 비율을 크게 해서 더 많은 탐험, 즉 무작위 투자를 수행하도록 해야한다. 이러한 탐험을 통해 특정 상황에서
-                     좋은 행동과 그렇지 않은 행동을 결정하기 위한 경험을 쌓는다.)
+                     좋은 행동과 그렇지 않은 행동을 결정하기 위한 경험을 쌓는다.) (탐험을 통한 학습이 지속적으로 쌓이게되면 탐험 비율을 줄여나간다.)
     learning: 학습 유무를 정하는 boolean 값 (학습을 마치면 학습된 정책 신경망 모델이 만들어지는데, 이렇게 학습을 해서 정책 신경망 모델을 만들고자 한다면 learning을 True로,
                      학습된 모델을 가지고 투자 시뮬레이션만 하려 한다면 False로 준다.)
     """
@@ -83,8 +83,10 @@ class PolicyLearner:
         self.visualizer.prepare(self.environment.chart_data)
 
         # 가시화 결과를 저장할 폴더 준비
-        epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (
-            self.stock_code, settings.timestr))     # settings.timeset: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
+        epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (     # settings.BASE_DIR: 프로젝트 관련 파일들이 포함된 기본/루트 폴더 경로를 말한다.
+            self.stock_code, settings.timestr))     # settings.timestr: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
+        # epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary', '%s' % self.stock_code,
+        #                                  'epoch_summary_%s' % settings.timestr)
         if not os.path.isdir(epoch_summary_dir):
             os.makedirs(epoch_summary_dir)
 
