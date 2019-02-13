@@ -140,16 +140,20 @@ class PolicyLearner:
             while True:
                 # 샘플 생성
                 next_sample = self._build_sample()      # 행동을 결정하기 위한 데이터인 샘플 준비
-                if next_sample is None:
+                if next_sample is None:                 # next_sample이 None이라면 마지막까지 데이터를 다 읽은 것이므로 반복문을 종료한다.
                     break
 
                 # 탐험 또는 정책 신경망에 의한 행동 결정 (E-Greedy: Exploration v.s Exploitation)
-                # decide_action()의 반환값 3가지: --> action: 결정한 행동, confidence: 결정에 대한 확신도, exploration: 무작위 투자 유무
+                # decide_action()의 반환값 3가지: --> action: 결정한 행동, confidence: 결정에 대한 확신도, exploration: 무작위 투자 유무 (반환 값 중 action은 매수 또는 매도 둘 중 하나가 된다. - 이유는 5줄 아래 주석 참고)
                 action, confidence, exploration = self.agent.decide_action(     # Exploitation, 즉 정책 신경망의 출력은 매수, 매도를 했을 때의 포트폴리오 가치를 높일 확률을 의미한다.
                     self.policy_network, self.sample, epsilon)                  # 즉 매수에 대한 정책 신경망의 출력이 매도에 대한 출력보다 높으면 매수를, 그 반대의 경우에는 매도를 선택한다.
 
                 # 결정한 행동을 수행하고 "즉시 보상"과 "지연 보상" 획득
-                immediate_reward, delayed_reward = self.agent.act(action, confidence)
+                immediate_reward, delayed_reward = self.agent.act(action, confidence)       # agent 모듈에 가서 act 함수를 보면 알겠지만, (일단 이 프로젝트에서 관망은 매수 및 매도가 불가능한 경우에만
+                                                                                            # action이 hold가 된다. 따라서) decide_action 함수에서 일단 action이 매수 또는 매도로 결정되고,
+                                                                                            # act 함수 초반에 매수/매도 상황이 불가능한 경우인지 아닌지, 즉 관망인지 아닌지 아닌지를 판단하게 된다.
+                                                                                            # 따라서 agent의 decide_action 함수가 반환하는 action은 우선 매수 또는 매도가 맞으며,
+                                                                                            # act 함수에서 실제로 행해지는 action이 그 매수 또는 매도가 될지 혹은 관망이 될지가 결정된다.
 
                 # 행동 및 행동에 대한 결과를 기억
                 # 아래의 메모리 변수들은 2가지 목적으로 사용된다. --> 1) 학습에서 배치 학습 데이터로 사용  2) Visualizer에서 차트를 그릴 때 사용
