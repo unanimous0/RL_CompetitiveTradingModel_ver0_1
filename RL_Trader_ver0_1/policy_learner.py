@@ -266,11 +266,12 @@ class PolicyLearner:
             locale.currency(max_portfolio_value, grouping=True), epoch_win_cnt))
 
 
-    # TODO --> Sample과 Batch_size가 정확히 무엇인지 알아야한다. (일단 Sample은 State(Observation)를 의미하는 것 같다.)
+    # TODO --> Sample과 Batch_size가 정확히 무엇인지 알아야한다. (Sample: training_data가 저장되므로 15(학습데이터)+2(상태데이터) 총 17개의 데이터를 같는 데이터)
+    # TODO                                               (Batch_size: 64)
     # 미니 배치 데이터 생성
     def _get_batch(self, memory, batch_size, discount_factor, delayed_reward):
-        x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터 및 에이전트 상태
-        y = np.full((batch_size, self.agent.NUM_ACTIONS), 0.5)      # 일련의 지연 보상
+        x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터 및 에이전트 상태 (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
+        y = np.full((batch_size, self.agent.NUM_ACTIONS), 0.5)      # 일련의 지연 보상 (np.full() --> 첫 번째 인자는 shape이고(다차원일 경우 튜플로 넘겨야한다.), 두 번째 인자 값으로 배열을 채운다.
 
         for i, (sample, action, reward) in enumerate(reversed(memory[-batch_size:])):       # 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다. 또한, 학습 데이터 특징의 크기와 에이전트 행동 수는 고정되어있다.
             x[i] = np.array(sample).reshape((-1, 1, self.num_features))     # 특징 벡터 지정하고,
@@ -282,7 +283,7 @@ class PolicyLearner:
 
     # 학습 데이터 샘플 생성
     def _build_sample(self):
-        self.environment.observe()      # 환경 객체의 observe() 함수를 호출하여, 차트 데이터의 현재 인덱스에서 다음 인덱스 데이터를 읽도록 한다.
+        self.environment. observe()      # 환경 객체의 observe() 함수를 호출하여, 차트 데이터의 현재 인덱스에서 다음 인덱스 데이터를 읽도록 한다.
         if len(self.training_data) > self.training_data_idx + 1:        # 학습 데이터의 다음 인덱스가 존재하는지 확인
             self.training_data_idx += 1
             self.sample = self.training_data.iloc[self.training_data_idx].tolist()
