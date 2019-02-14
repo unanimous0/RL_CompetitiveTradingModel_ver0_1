@@ -144,6 +144,7 @@ class Agent:
         #    실제로는 관망을 선택했음에도 visulaizer에서는 매수 또는 매도 중 하나를 선택해버리는 상황이 생길 수 있다. 
         #    --> 따라서 plot 함수에도 위처럼 조건문을 주거나 agent.action을 사용하도록 만들어야 할 것이다. 
         """
+        #TODO 확인해야할 사항 발견 --> 아래 TODO 확인
 
         return action, confidence, exploration      # action: 결정한 행동, confidence: 결정(된 행동)에 대한 확신도, exploration: 무작위 투자 유무
 
@@ -155,18 +156,18 @@ class Agent:
         # 디폴트 값이 True이며 아래 조건에 걸리면 False가 된다.
         validity = True
         if action == Agent.ACTION_BUY:
-            # 적어도 1주를 살 수 있는지 확인
-            if self.balance < self.environment.get_price() * (1 + self.TRADING_CHARGE) * self.min_trading_unit:     # 우리가 최소 거래 단위를 1로 해놨으니 self.min_trading_unit을
+            # (선택된 행동이 매수라면,) 적어도 1주를 살 수 있는지 확인
+            if self.balance < (self.environment.get_price() * (1 + self.TRADING_CHARGE)) * self.min_trading_unit:     # 우리가 최소 거래 단위를 1로 해놨으니 self.min_trading_unit을
                 validity = False                                                                                    # 안 곱해도 되지만, 최소 거래 단위가 1보다 크면 꼭 곱해줘야한다.
         elif action == Agent.ACTION_SELL:
-            # 매도할 주식 잔고가 있는지 확인
+            # (선택된 행동이 매도라면,) 매도할 주식 잔고가 있는지 확인
             if self.num_stocks <= 0 :
                 validity = False
         return validity
 
 
     # 매수/매도 단위 결정
-    # 정책 신경망이 결정한 행동의 확률이 높을 수록 매수 또는 매도하는 단위를 크게 정해준다.
+    # 정책 신경망이 결정한 행동의 확률(confidence)이 높을 수록 매수 또는 매도하는 단위를 크게 정해준다.
     # 높은 확률로 매수를 결정했으면 더 많은 주식을 매수하고, 높은 확률로 매도를 결정했으면 더 많은 보유 주식을 매도한다.
     def decide_trading_unit(self, confidence):
         if np.isnan(confidence):
@@ -175,11 +176,45 @@ class Agent:
             int(confidence * (self.max_trading_unit - self.min_trading_unit)),
             self.max_trading_unit - self.min_trading_unit), 0)
         return self.min_trading_unit + added_trading
+    # TODO confidence가, 아니, confidence * (max-min)이 1을 넘지 못한다면 결국 max(0,0)이 되므로 추가되는 거래 단위는 없다.
+    # TODO 그러나 (max-min)이 1을 넘는다면(즉 2 이상이라면), confidence는 1을 넘게 된다. --> 그렇게 되면 max(1 또는 그 이상의 정수, 0) = 1 또는 그 이상의 정수가 되므로 추가되는 거래 단위는 1 이상이 된다.
+    # TODO 다시 말해, max = 3이고 min = 1로 고정이라면, max가 3인 시점부터 max-min의 값이 2 이상이 되어버린다. --> max값이 4,5,6... 증가할 수록 max-min의 값도 3,4,5...가 된다.
+    # TODO
+    """
+    정리해보면 일단 confidence는 두 확률 값 중 큰 값이며, 소프트맥스 확률 값이므로 선택된 행동의 확률 값 범위는 0.5 < x < 1이 된다. 
+    따라서 confidence*(max-min)은 항상 (max-min)보다 작을 수 밖에 없다. (max-min이 2 이상이 되든 말든 상관없이)
+    --> Q_1. 여기서 첫 번째 의문: min() 함수를 뭐하러 사용한 것인가? 그냥 int(confidence*(max-min))만 사용해도 됐을텐데.
+    
+    어찌됐든 그 다음 max() 함수를 살펴보면, min() 함수를 통해 선택된 int(confidence*(max-min))과 0을 비교하게 된다.
+    이때, max-min이 1이라면 confidence*(max-min)은 항상 1보다 작고, 여기에 int()를 씌우면 항상 0이 되기 때문에 추가되는 거래단위는 없게 된다.  
+    그러나 max-min이 2 이상이 되는 순간 부터는 confidence*(max-min)이 1보다 커지게 되고, int()를 씌우면 1이 나오기 때문에,
+    이 순간 부터는 (max-min이 2 이상이 되는 순간 부터는) max() 함수의 결과가 항상 0을 선택하지 않게 되며, 이로 인해 거래 단위가 항상 증가할 수 밖에 (0보다 클 수 밖에) 없게 된다.
+    --> Q_2. 여기서 두 번째 의문: 그렇다면 선택된 행동의 확률 값이 높을 수록 추가되는 거래 단위가 많아 지는게 아니라, max-min의 차가 클 수록 거래단위가 많아지는 것 아닌가?
+    
+    ==> A_2. 다시 생각해보니 max-min이 2 이상이 되는 순간 부터는 confidence가 0.51인 경우와 0.99인 경우 추가되는 거래 단위가 차이가 나게 된다. 
+    그리고 max-min, 즉 이 둘의 차가 confidence에 미치는 영향의 정도는 confidence가 어떤 값을 갖든 일정할 것이므로, 
+    max-min의 값이 클 수록 작은 경우보다 추가되는 거래가 많아지지만 이는 올바른 비교가 아니고, max-min의 영향이 같은 상황에서 
+    confidence에 따라 추가되는 거래가 얼만큼 차이나는 지를 봐야하는 것이므로, confidence가 어느정도의 확률 값을 갖느냐에 따라 추가되는 거래의 양이 증가하거나 감소하는 것이 맞다. 
+    """
 
 
     # 투자 행동 수행 함수 (행동 준비)
     # 인자로 들어오는 action은 탐험 또는 정책 신경망을 통해 결정한 행동으로 매수와 매도를 의미하는 0 또는 1의 값을 갖는다.
     # confidence는 정책 신경망을 통해 결정한 경우 결정한 행동에 대한 소프트맥스 확률 값이다.
+    # TODO confidence가 소프트맥스 확률 값이라면 두 행동에 대한 확률의 합은 1이 된다. 그렇다면 선택되는 행동의 값은 무조건 0.5 보다 높게 된다.
+    # TODO      --> 이럴 경우 위의 <<보완>>에서 작성한 선택된 확률 자체가 낮게 나오는 경우는 없게 될 것이다.
+    # TODO      --> Q. 그러나 이는 둘이 합쳐서 반드시 혹은 어쩔 수 없이 1이 나와야 하는 상황인데, 이 수치가 신뢰할 만한 수준인지 의문이 남는다. 확인 필수!
+    """
+        바로 위의 소프트맥스에 관한 이야기 [개발이야기 블로그] 글 참고
+        - softmax
+        : "여기서 풀려는 문제는 입력 이미지가 주어졌을 때 0~9 까지 각 숫자와 얼마나 비슷한지에 대한 확률을 얻으려는 것임을 기억해 두세요. 
+        예를 들면 우리 모델이 어떤 이미지에 대해 “9” 일 확률이 80% 이고 “8” 일 확률이 5%(9의 애매한 꼬리 부분으로 인해) 이며 다른 숫자에 대해서는 낮은 확률을 예측할 수 있습니다. 
+        손글씨 숫자를 인식하는 것엔 어느정도 불확실한 부분이 있고 100% 확신을 가지고 하긴 어렵습니다. 이런 경우에 확률 분포는 예측에 대해 얼마나 신뢰할 수 있는지에 대해 좋은 정보를 제공합니다.
+        그래서 우리는 상호 배타적인 레이블에 대한 결과로 확률 분포를 담은 출력 벡터를 가집니다. 10개의 확률 값을 가진 이 벡터는 각각 0 에서 9 까지의 숫자에 대응되는 것이고 확률의 전체 합은 1입니다.
+        앞서 언급한 것 처럼 이 벡터는 출력 레이어를 소프트맥스 활성화 함수로 구성하여 얻어집니다. 소프트맥스 함수를 사용한 뉴런의 출력 값은 그 레이어의 다른 뉴런의 출력 값에 영향을 받게 되고 그들의 출력 값 합은 1이 되어야 합니다."
+        
+        출처: [https://potensj.tistory.com/13]
+    """
     def act(self, action, confidence):
         if not self.validate_action(action):
             action = Agent.ACTION_HOLD
