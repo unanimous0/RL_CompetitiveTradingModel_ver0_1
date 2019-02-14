@@ -24,9 +24,9 @@ import numpy as np
 
 
 class Agent:
-    # 에이전트의 상태를 구성하는 값의 갯수
-    # RLTrader에서의 에이전트 상태는 2개의 값을 가지므로 2차원이다.
     STATE_DIM = 2           # 에이전트 상태의 차원: 주식 보유 비율 & 포트폴리오 가치 비율
+                            # 에이전트의 상태를 구성하는 값의 갯수
+                            # RLTrader에서의 에이전트 상태는 2개의 값을 가지므로 2차원이다.
 
     # 매매 수수료 및 세금 미고려
     TRADING_CHARGE = 0      # 거래 수수료 미고려 (일반적으로 0.015%)
@@ -40,9 +40,10 @@ class Agent:
     ACTION_BUY = 0
     ACTION_SELL = 1
     ACTION_HOLD = 2
-    ACTIONS = [ACTION_BUY, ACTION_SELL]     # 인공 신경망에서 확률을 구할 행동들 (정책 신경망이 확률을 계산할 행동들)
-                                            # 본 프로젝트에서는 매수와 매도에 대한 확률만 계산하고, 매수와 매도 중에서 결정한 행동을 할 수 없을 때만 관망 행동을 한다.
-    NUM_ACTIONS = len(ACTIONS)              # 인공 신경망에서 고려할 출력값의 갯수
+    ACTIONS = [ACTION_BUY, ACTION_SELL]     # 인공 신경망에서 확률을 구할 행동들 (정책 신경망이 확률을 계산할 행동들 - 관망의 행동 확률은 구하지 않는다.)
+                                            # 본 프로젝트에서는 매수와 매도에 대한 확률만 계산하고, 매수와 매도 중에서 결정한 행동을 할 수 없을 때만 관망을 한다.
+                                            # 즉 우선 어느 상황이든 매수 및 매도에 대한 확률을 구하고, 그 뒤에 매수 혹은 매도가 불가능한 상황일 경우인지를 판단하여 불가능한 상황일 때만 관망을 하는 것이다.
+    NUM_ACTIONS = len(ACTIONS)              # 인공 신경망에서 고려할 출력값의 갯수 (output의 갯수는 매수와 매도에 대한 확률 2가지이다. - 관망에 대한 확률을 구하지 않는다고 바로 위에서 밝혔다.)
 
 
     def __init__(self, environment, min_trading_unit=1, max_trading_unit=2, delayed_reward_threshold=0.05):
@@ -59,9 +60,10 @@ class Agent:
         self.initial_balance = 0        # 초기 자본금
         self.balance = 0                # 현재 현금 잔고
         self.num_stocks = 0             # 보유 주식 수
-        self.portfolio_value = 0        # 포트폴리오 가치 (= balance + num_stocks * {현재 주식의 가격})
+        self.portfolio_value = 0        # 포트폴리오 가치 (= balance + {num_stocks * 현재 주식의 가격})
         self.base_portfolio_value = 0   # 직전 학습 시점의 포트폴리오 가치 --> 이 기준 포트폴리오 가치는 목표 수익률 또는 기준 손실률을 달성하기 전의 과거 포트폴리오 가치로,
                                         # 현재 포트폴리오 가치가 증가했는지, 감소했는지를 비교할 기준이 된다. (현재 수익이 발생했는지 혹은 손실이 발생했는지를 판단할 수 있는 값이 된다.)
+                                        # 이 변수는 "초기" 포트폴리오 가치가 아닌 "직전 학습 시점"의 포트폴리오 가치를 나타내므로 중간에 이 값을 계속 업데이트 시켜주는 과정이 있다. (초기 가치라면 처음 한 번 정의 후 업데이트 없을 것)
 
         self.num_buy = 0                # 매수 횟수
         self.num_sell = 0               # 매도 횟수
@@ -69,12 +71,12 @@ class Agent:
         self.immediate_reward = 0       # 즉시 보상 (에이전트가 가장 최근에 행한 행동에 대한 즉시 보상 값)
                                         # 이 즉시 보상은 행동을 수행한 시점에서 수익이 발생한 상태면 1을, 아니면 -1을 준다.
 
-        # Agent 클래스의 상태
+        # Agent의 상태
         self.ratio_hold = 0             # 주식 보유 비율 (최대로 보유할 수 있는 주식 수 대비 현재 보유하고 있는 주식 수의 비율)
         self.ratio_portfolio_value = 0  # "포트폴리오 가치 비율" (직전 지연 보상이 발생했을 때의 포트폴리오 가치 대비 현재의 포트폴리오 가치의 비율)
 
 
-    # 에포크 마다 당연히 에이전트의 상태는 초기화되어야 하므로(학습된 신경망이 초기화되는 것이 아님) 학습 단계에서 한 에포크마다 에이전트의 상태를 초기화한다.
+    # 에포크 마다 당연히 에이전트의 상태는 초기화되어야 하므로(학습된 신경망이 초기화되는 것이 아님!) 학습 단계에서 한 에포크마다 에이전트의 상태를 초기화한다.
     def reset(self):
         self.balance = self.initial_balance
         self.num_stocks = 0
@@ -95,18 +97,18 @@ class Agent:
 
     # 에이전트의 상태를 반환
     def get_states(self):
-        # 주식 보유 비율은 현재 상태에서 가장 많이 가질 수 있는 주식 수(=포트폴리오가치/현재주가) 대비 현재 보유한 주식의 비율이다.
+        # 주식 보유 비율은 현재 상태에서 가장 많이 가질 수 있는 주식 수(=포트폴리오가치/현재주가, =최대 보유 가능 주식 수) 대비 현재 보유한 주식의 비율이다.
         # 주식 보유 비율 = 보유 주식 수  / (포트폴리오 가치 / 현재 주가)
         # 주식 수가 너무 적으면 매수의 관점에서 투자에 임하고, 주식 수가 너무 많으면 매도의 관점에서 투자에 임하게 된다.
-        # 즉 보유 주식 수 혹은 비율이 투자 행동 결정에 영향을 줄 수 있기 때문에 이 값을 에이전트의 상태로 정하고 정책 신경망의 입력에 포함한다.
+        # 즉 보유 주식 수 혹은 비율이 투자 행동 결정에 영향을 줄 수 있기 때문에 (같이 입력되는 다른 15개의 학습 데이터와 같이) 이 값을 에이전트의 상태로 정하고 정책 신경망의 입력에 포함한다.
         self.ratio_hold = self.num_stocks / int(self.portfolio_value / self.environment.get_price())
 
         # "포트폴리오 가치 비율" = 포트폴리오 가치 / 기준 포트폴리오 가치
-        # "포트폴리오 가치 비율" : 기준 포트폴리오 가치 대비 현재 포트폴리오 가치의 비율 (이때 기준 포트폴리오 가치는 직전에 목표 수익 또는 손익률을 달설했을 때의 포트폴리오 가치)
+        # "포트폴리오 가치 비율" : 기준 포트폴리오 가치 대비 현재 포트폴리오 가치의 비율 (이때 기준 포트폴리오 가치는 직전에 목표 수익 또는 손익률을 달성했을 때의 포트폴리오 가치)
         # 이 포트폴리오 가치 비율이 0에 가까우면 손실이 큰 것이고, 1보다 크면 수익이 발생했다는 뜻이다.
-        # 즉 수익률이 투자 행동 결정에 영향을 줄 수 있기 때문에 이 값을 에이전트의 상태로 정하고 정책 신경망의 입력값에 포함한다.
+        # 현재 수익률이 목표 수익률에 가까우면 매도 관점에서 투자할 수 있다. 즉 수익률이 투자 행동 결정에 영향을 줄 수 있기 때문에 이 값을 에이전트의 상태로 정하고 정책 신경망의 입력값에 포함한다.
         self.ratio_portfolio_value = self.portfolio_value / self.initial_balance
-        #TODO 분모가 (self.initial_balance가 아닌) 이게 맞는 것 같으므로 확인해볼 것 (둘이 우선 0으로 같긴하다.) (책 설명으로는 아래 내가 쓴게 맞음)
+        #TODO 분모가 (self.initial_balance가 아닌) self.base_portfolio_value가 맞는 것 같으므로 확인해볼 것 (둘이 우선 0으로 같긴하다.) (책 설명으로는 아래 내가 쓴게 맞음)
         # self.ratio_portfolio_value = self.portfolio_value / self.base_portfolio_value
 
         return (self.ratio_hold, self.ratio_portfolio_value)
@@ -119,29 +121,31 @@ class Agent:
         # 탐험 결정 by E-Greedy
         if np.random.rand() < epsilon:      # 엡실론의 확률로 무작위 행동을 한다.
             exploration = True
-            action = np.random.randint(self.NUM_ACTIONS)    # 액션의 수는 2개이다(관망 제외 매수 및 매도) --> 그러나 randint(2)는 0~2 중 랜덤 값이므로 탐험 결과로 매수,매도,관망 중 하나를 선택한다.
+            action = np.random.randint(self.NUM_ACTIONS)    # 액션의 수는 2개이다(관망을 제외한 매수 및 매도) --> 그러나 randint(2)는 0~2 중 랜덤 값이므로 탐험 결과로 매수,매도,관망 중 하나를 선택한다.
         else:                               # (1-엡실론)의 확률로 정책 신경망을 통해 (최적화 된, argmax로) 행동을 결정한다.        (이 부분 관련 설명이 policy_network의 predict 메서드에 있다.)
             exploration = False
-            probs = policy_network.predict(sample)      # 각 행동에 대한 확률 - 정책 신경망 클래스의 predict() 함수를 사용하여, 현재 상태에서의 매수와 매도의 확률을 받아온다.
-            action = np.argmax(probs)                   # 이렇게 받아온 확률 중에서 가장 큰 값을 선택하여 행동으로 결정한다. (action은 가장 큰 확률 값을 갖는 행동의 위치를 나타낸다.)
-            confidence = probs[action]                  # 가장 큰 확률 값을 가져 선택된 행동의 그 확률 값 (단순히 바로 위의 action에 해당하는 (prob의) 확률 값)
+            probs = policy_network.predict(sample)      # 각 행동에 대한 확률 - 정책 신경망 클래스의 predict() 함수를 사용하여, 현재 상태에서의 매수와 매도의 확률을 받아온다. (해당 정책 신경망은 output으로 매수와 매도에대한 두 가지 확률 값을 반환한다.)
+            action = np.argmax(probs)                   # 이렇게 받아온 확률 중에서 가장 큰 값을 선택하여 행동으로 결정한다. (action은 매수와 매도 중 가장 큰 확률 값을 갖는 행동의 위치를 나타낸다. (argmax() 함수를 사용했으므로.)
+            confidence = probs[action]                  # probs가 매수 및 매도에 대한 확률을 의미하고, action은 가장 큰 확률 값을 가져 선택된 그 행동(매수 또는 매도 중 하나)의 위치 값을 의미하므로
+                                                        # confidence는 그 선택된 행동의 확률 값을 갖는다. --> (단순히 바로 위의 action에 해당하는 (prob의) 확률 값)
         """
         # # <<보완>> 
-        # # 위의 경우 정책 신경망 출력 값이, (즉 결과로 나온 확률 중 MAX값을 선택해도 그 확률 자체가 낮을 수도 있으므로), 
-        # # 매우 낮은 상황에서 (즉 선택한 행동이 최선인지 불확실한 경우에) 매수 또는 매도를 수행할 수 있다.
-        # # 따라서 정책 신경망의 출력 값이 어느 정도의 확률값(임계값, threshold) 이상일 경우에만 결정된 행동을 결정하도록 한다.
+        # # 위의 경우 정책 신경망 출력 값이, (즉 결과로 나온 확률 중 MAX값을 선택해도 그 확률 자체가 낮을 수도 있으므로, 예를 들어 0.05와 0.06의 싸움), 
+        # # 매우 낮은 상황에서 (즉 선택한 행동이 최선인지 불확실한 경우에) 매수 또는 매도를 수행할 수 있다. --> 이런 경우 선택된 매수 또는 매도가 신뢰성있는 행동인지에 대한 의문이 남게된다.
+        # # 따라서 정책 신경망의 출력 값이 어느 정도의 확률값(임계값, threshold) 이상일 경우에만 결정된 행동을 결정하도록 한다. 임계치를 넘치 못한다면 관망을 하도록 만든다.
         # else:
         #     exploration = False
         #     probs = policy_network.predict(sample)      # 각 행동에 대한 확률
-        #     action = np.argmax(probs) if np.max(probs) >= 0.1 else Agent.ACTION_HOLD      # 이때의 threshold는 0.1이다.
+        #     action = np.argmax(probs) if np.max(probs) >= 0.5 else Agent.ACTION_HOLD      # 이때의 threshold는 0.5이다.
         #     confidence = probs[action]
         
         # 유의사항:
-        #    만일 이런식으로 threshold를 줘버리면, visualizer에서 구현한 plot 함수에서 가지 값(매수 확률, 매도 확률) 중 하나를 argmax로 결정하고 있어,
-        #    실제로는 관망을 선택했음에도 visulaizer에서는 매수 또는 매도 중 하나를 선택해버리는 상황이 생길 수 있다.     
+        #    만일 이런식으로 threshold를 줘버리면, visualizer에서 구현한 plot 함수에서 가지는 값(매수 확률, 매도 확률) 중 하나를 argmax로 결정하고 있기 때문에,
+        #    실제로는 관망을 선택했음에도 visulaizer에서는 매수 또는 매도 중 하나를 선택해버리는 상황이 생길 수 있다. 
+        #    --> 따라서 plot 함수에도 위처럼 조건문을 주거나 agent.action을 사용하도록 만들어야 할 것이다. 
         """
 
-        return action, confidence, exploration      # action: 결정한 행동, confidence: 결정에 대한 확신도, exploration: 무작위 투자 유무
+        return action, confidence, exploration      # action: 결정한 행동, confidence: 결정(된 행동)에 대한 확신도, exploration: 무작위 투자 유무
 
 
     # 결정한 행동이 특정 상황에서는 수행할 수 없을 수도 있다. 예를 들어 매수를 결정했는데 잔금이 1주를 매수하기에도 부족한 경우나,

@@ -34,7 +34,8 @@ P.75: 행동에 대한 확신과 지연 보상 임계치 변경
 
 P.76: 학습 단계에서 한 에포크마다 에이전트의 상태 초기화해야함 --> Why?
 
-P.77: 투자 행동 결정에 영향을 주는 것이 (그래서 정책 신경망의 입력에 포함할만한 것이) 또 뭐가 있을까?
+P.77: 투자 행동 결정에 영향을 주는 것이 (그래서 정책 신경망의 입력에 포함할만한 것이) 또 뭐가 있을까
+	- 수익 혹은 손실이 몇 번 연속으로 발생했는지?
 
 P.79: 신용 매수 및 공매도 고려
 
@@ -134,7 +135,21 @@ P.:
 
 P.:
 
-P.:
+<변수명 변경>
+
+P.72: agent 모듈에서 현재 (현금) 잔고 변수인 balance를 --> curr_balance로 변경
+
+P.72: agent 모듈에서 초기 자본금 설정 함수인 set_balance()를 --> set_initial_balance()로 변경
+
+P.72: agent 모듈에서 에이전트 상태 획득 함수인 get_states()를 --> get_agent_states()로 변경
+
+P.75: agent 모듈에서 주식 보유 비율 변수인 self.ratio_hold를 --> self.equity_holding_ratio로 변경
+
+P.75: agent 모듈에서 포트폴리오 가치 비율 변수인 self.ratio_portfolio_value를 --> self.portfolio_value_ratio로 변경
+
+P.78: agent 모듈에서 각 행동에 대한 확률 변수인 probs를 --> actions_probabilities로 변경
+
+P.78: agent 모듈에서 선택된 행동에 대한 확률 변수인 confidence를 --> selected_action_probability로 변경
 
 P.:
 
@@ -148,22 +163,37 @@ P.:
 
 P.:
 
-P.:
 
-P.:
+> chart_data: 주식 종목의 차트 데이터, 즉 특정 기업의 DOHLCV를 가지고 있는 데이터
 
-P.:
+> Environment 클래스
+    - 생성자에서 chart_data 사용
+     - 생성자가 chart_data를 인자로 받아옴
 
-P.:
+    - 생성자에서 observation 정의 
+     - observation에는 (observe 함수에 의해) chart_data의 특정 위치의 DOHLCV가 저장된다.
+    
+    - observe 함수 정의
+     - chart_data에서 특정 위치의 DOHLCV를 가져온다.
 
-P.:
 
-P.:
+> Agent 클래스
+    - min_trading_unit, max_trading_unit가 agent 클래스의 생성자 인자값으로 들어간다.
+    
+    - delayed_reward_threshold가 agent 클래스의 생성자 인자값으로 들어간다. (손익률이 이 값을 넘으면 지연 보상이 발생한다.)
 
-P.:
+    - 
 
-P.:
 
-P.:
 
-P.: 
+
+
+
+
+
+
+
+
+
+
+

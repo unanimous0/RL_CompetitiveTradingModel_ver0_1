@@ -42,17 +42,15 @@ class Environment:
     """
     def observe(self):
         if len(self.chart_data) > self.idx + 1:     # 차트 데이터의 전체 길이보다 다음 위치가 작을 경우 가져올 데이터가 있다는 뜻이며,
-            self.idx += 1                           # 이 경우 현재 위치 self.idx에 1을 더하고im
+            self.idx += 1                           # 이 경우 현재 위치 self.idx에 1을 더하고
             self.observation = self.chart_data.iloc[self.idx]   # 차트 데이터에서 이 위치의 요소를 가져와 self.observation에 저장한다..
             return self.observation                             # 이때 iloc()함수는 특정 행의 데이터를 전부 가져오므로, self.observation에는 종가 뿐만 아니라 다른 데이터 역시 담겨있다.
         return None     # 더 이상 제공할 데이터가 없을 때는 None을 반환한다.
-
 
     def get_price(self):
         if self.observation is not None:
             return self.observation[self.PRICE_IDX]     # iloc()로 가져온 self.observation에는 D,O,H,L,C,V가 다 들어있으므로 종가의 인덱스를 통해 종가를 가져온다.
         return None
-
 
     def set_chart_data(self, chart_data):
         self.chart_data = chart_data
