@@ -58,7 +58,7 @@ class PolicyNetwork:
     # 이 predict 매서드는 Agent 클래스의 decide_action 매서드가 사용한다.
     # decide_action 메서드는 탐험 시에는 매수,매도,관망 중 한 가지를 랜덤으로 선택하게 되며, 탐험이 아닐 시에는 이 predict 함수가 17차원의 sample을 입력으로 받아 매수,매도 2가지를 output으로 내놓게 된다.
     # "관망은 어디 있느냐"라는 질문에 대한 답으로는, 탐함이 아니면 우선 실제 행동을 실행하는 Agent 클래스의 act 메서드가 첫 부분에서 validate_action을 통해 매수, 매도를 할 수 없는 상황인 경우 관망을 선택한다.
-    # 매수, 매도를 할 수 있는 것이 validate되면 act 메서드는 decide_action 메서드에서 결정된 action을 토대로 실제 매수와 매도 중에서 행동을 실행하게 된다.
+    # 매수, 매도를 할 수 있는 것이 validate되면(True값이 나오면) act 메서드는 decide_action 메서드에서 결정된 action을 토대로 실제 매수와 매도 중에서 행동을 실행하게 된다.
     def predict(self, sample):
         # TODO sample이 state일 것이고, 이를  reshape를 하면 2차원의 [1,None]일 것이다. 또한 2차원이므로 [0]으로 필요한 1차원 배열을 가져와 predict함수에 넣는다 --> 체크 필수!
         self.prob = self.model.predict(np.array(sample).reshape((1, -1, self.input_dim)))[0]

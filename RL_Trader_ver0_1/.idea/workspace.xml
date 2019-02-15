@@ -4,6 +4,7 @@
     <list default="true" id="eb05cb3a-cbc2-421e-92a5-7164491ba744" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/policy_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/policy_network.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" beforeDir="false" afterPath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,26 +78,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/environment.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="520">
+                <state relative-caret-position="855">
                   <caret line="57" selection-start-line="57" selection-end-line="57" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/agent.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="861">
-                  <caret line="356" column="12" selection-start-line="356" selection-start-column="12" selection-end-line="356" selection-end-column="12" />
+                <state relative-caret-position="189">
+                  <caret line="123" column="150" selection-start-line="123" selection-start-column="150" selection-end-line="123" selection-end-column="150" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/policy_network.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
-                  <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+                <state relative-caret-position="528">
+                  <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -165,8 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>learning</find>
-      <find>지연</find>
       <find>edx</find>
       <find>batch</find>
       <find>get_batch</find>
@@ -195,6 +194,8 @@
       <find>max_trading_unit</find>
       <find>직전</find>
       <find>profitloss</find>
+      <find>기준 포트폴리오 가치</find>
+      <find>15개</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,7 +213,6 @@
         <option value="$PROJECT_DIR$/test/data_manager2.py" />
         <option value="$PROJECT_DIR$/test/environment_2.py" />
         <option value="$PROJECT_DIR$/test/agent2.py" />
-        <option value="$PROJECT_DIR$/policy_network.py" />
         <option value="$PROJECT_DIR$/test/policy_network2.py" />
         <option value="$PROJECT_DIR$/test/visualizer2.py" />
         <option value="$PROJECT_DIR$/visualizer.py" />
@@ -220,6 +220,7 @@
         <option value="$PROJECT_DIR$/environment.py" />
         <option value="$PROJECT_DIR$/policy_learner.py" />
         <option value="$PROJECT_DIR$/agent.py" />
+        <option value="$PROJECT_DIR$/policy_network.py" />
       </list>
     </option>
   </component>
@@ -490,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550187952778</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Committed">
+      <created>1550237260421</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1550237260422</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -625,10 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/policy_network.py">
+    <entry file="file://$PROJECT_DIR$/environment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        <state relative-caret-position="855">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
@@ -673,17 +681,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/environment.py">
+    <entry file="file://$PROJECT_DIR$/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="189">
+          <caret line="123" column="150" selection-start-line="123" selection-start-column="150" selection-end-line="123" selection-end-column="150" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agent.py">
+    <entry file="file://$PROJECT_DIR$/policy_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="356" column="12" selection-start-line="356" selection-start-column="12" selection-end-line="356" selection-end-column="12" />
+        <state relative-caret-position="528">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
         </state>
       </provider>
     </entry>
