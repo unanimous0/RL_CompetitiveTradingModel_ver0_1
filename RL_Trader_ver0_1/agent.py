@@ -177,13 +177,15 @@ class Agent:
             self.max_trading_unit - self.min_trading_unit), 0)
         return self.min_trading_unit + added_trading
     # TODO confidence가, 아니, confidence * (max-min)이 1을 넘지 못한다면 결국 max(0,0)이 되므로 추가되는 거래 단위는 없다.
-    # TODO 그러나 (max-min)이 1을 넘는다면(즉 2 이상이라면), confidence는 1을 넘게 된다. --> 그렇게 되면 max(1 또는 그 이상의 정수, 0) = 1 또는 그 이상의 정수가 되므로 추가되는 거래 단위는 1 이상이 된다.
-    # TODO 다시 말해, max = 3이고 min = 1로 고정이라면, max가 3인 시점부터 max-min의 값이 2 이상이 되어버린다. --> max값이 4,5,6... 증가할 수록 max-min의 값도 3,4,5...가 된다.
-    # TODO
+    #      그러나 (max-min)이 1을 넘는다면(즉 2 이상이라면), confidence는 1을 넘게 된다. --> 그렇게 되면 max(1 또는 그 이상의 정수, 0) = 1 또는 그 이상의 정수가 되므로 추가되는 거래 단위는 1 이상이 된다.
+    #      다시 말해, max = 3이고 min = 1로 고정이라면, max가 3인 시점부터 max-min의 값이 2 이상이 되어버린다. --> max값이 4,5,6... 증가할 수록 max-min의 값도 3,4,5...가 된다.
+    # TODO 계속 아래 주석 read
     """
     정리해보면 일단 confidence는 두 확률 값 중 큰 값이며, 소프트맥스 확률 값이므로 선택된 행동의 확률 값 범위는 0.5 < x < 1이 된다. 
     따라서 confidence*(max-min)은 항상 (max-min)보다 작을 수 밖에 없다. (max-min이 2 이상이 되든 말든 상관없이)
     --> Q_1. 여기서 첫 번째 의문: min() 함수를 뭐하러 사용한 것인가? 그냥 int(confidence*(max-min))만 사용해도 됐을텐데.
+    
+    --> Q_1_2. 애초에 일단 max-min의 의미를 모르겠다.
     
     어찌됐든 그 다음 max() 함수를 살펴보면, min() 함수를 통해 선택된 int(confidence*(max-min))과 0을 비교하게 된다.
     이때, max-min이 1이라면 confidence*(max-min)은 항상 1보다 작고, 여기에 int()를 씌우면 항상 0이 되기 때문에 추가되는 거래단위는 없게 된다.  
@@ -195,6 +197,7 @@ class Agent:
     그리고 max-min, 즉 이 둘의 차가 confidence에 미치는 영향의 정도는 confidence가 어떤 값을 갖든 일정할 것이므로, 
     max-min의 값이 클 수록 작은 경우보다 추가되는 거래가 많아지지만 이는 올바른 비교가 아니고, max-min의 영향이 같은 상황에서 
     confidence에 따라 추가되는 거래가 얼만큼 차이나는 지를 봐야하는 것이므로, confidence가 어느정도의 확률 값을 갖느냐에 따라 추가되는 거래의 양이 증가하거나 감소하는 것이 맞다. 
+    즉 여기서 max-min은 그 차이가 1보다 커야만(2 이상이어야만) confidence에 따라 거래 단위에 유의미한 차이가 생기게 되는 것이다.
     """
 
 
@@ -202,8 +205,8 @@ class Agent:
     # 인자로 들어오는 action은 탐험 또는 정책 신경망을 통해 결정한 행동으로 매수와 매도를 의미하는 0 또는 1의 값을 갖는다.
     # confidence는 정책 신경망을 통해 결정한 경우 결정한 행동에 대한 소프트맥스 확률 값이다.
     # TODO confidence가 소프트맥스 확률 값이라면 두 행동에 대한 확률의 합은 1이 된다. 그렇다면 선택되는 행동의 값은 무조건 0.5 보다 높게 된다.
-    # TODO      --> 이럴 경우 위의 <<보완>>에서 작성한 선택된 확률 자체가 낮게 나오는 경우는 없게 될 것이다.
-    # TODO      --> Q. 그러나 이는 둘이 합쳐서 반드시 혹은 어쩔 수 없이 1이 나와야 하는 상황인데, 이 수치가 신뢰할 만한 수준인지 의문이 남는다. 확인 필수!
+    #   --> 이럴 경우 위의 <<보완>>에서 작성한 선택된 확률 자체가 낮게 나오는 경우는 없게 될 것이다.
+    #   --> Q. 그러나 이는 둘이 합쳐서 반드시 혹은 어쩔 수 없이 1이 나와야 하는 상황인데, 이 수치가 신뢰할 만한 수준인지 의문이 남는다. 확인 필수!
     """
         바로 위의 소프트맥스에 관한 이야기 [개발이야기 블로그] 글 참고
         - softmax
@@ -228,21 +231,50 @@ class Agent:
         # 매수
         if action == Agent.ACTION_BUY:
             # 매수할 단위를 판단
+            # (decide_trading_unit 함수에 의해) confidence가 높다면 (그리고 max-min이 2 이상의 값을 갖는다면) 추가되는 거래 단위가 있을 수 있다.
             trading_unit = self.decide_trading_unit(confidence)
 
-            # 매수 후의 잔금을 확인 (실제 매수 전에 미리 가격을 계산해보고 매수 후 잔금이 어떻게 될지 확인하는 것이다.)
-            balance = self.balance - curr_price * (1 + self.TRADING_CHARGE) * trading_unit
-            # 보유 현금이 모자랄 경우 보유 현금으로 가능한 만큼 최대한 매수 (매수 후에 잔금이 0보다 적으면 안되기 때문에 확인해준다.)
+            # 매수 후의 잔금을 확인 (이는(바로 아래 식은) 실제 매수 전에 미리 가격을 계산해보고 매수 후 잔금이 어떻게 될지 확인하는 것이다.)
+            balance = self.balance - (curr_price * (1 + self.TRADING_CHARGE) * trading_unit)
+
+            # (위 식을 통해 확인한 결과) 보유 현금이 모자랄 경우 보유 현금으로 가능한만큼 최대한 매수 (매수 후에 잔금이 0보다 적으면 안되기 때문에 확인해준다.)
             if balance < 0:
                 trading_unit = max(min(
-                    int(self.balance / (curr_price * (1 + self.TRADING_CHARGE))), self.max_trading_unit),
-                     self.min_trading_unit
-                )       # (최소가 1, 최대가 2라면) 최소 1단위에서 최대 2단위까지 최대한 매수하며, 1.5단위의 경우에는 max보다 작고 min보다 크기 때문에
-                        # 그 단위만큼 사는 것이다. (이 1.5단위가 보유 현금으로 최대 구매 가능한 매수 단위인 것이다. 물론 int가 있어서 1.5는 1로 대체될 것이다.)
-                        # 즉 "self.balance / (curr_price * (1+self.TRADING_CHARGE))" 가 최대구매가능단위를 뜻하므로 1.5가 나오면
-                        # 앞의 min과 max에 따라 1.5만큼 최대 구매 하는 것 (다른 값이 나오면 최대 최소 비교해 본 상황에 따라 다를 것)
-                        # 또한, 적어도 1주를 살 수 있는지를 이 메서드 제일 첫 부분인 self.validate_action에서 확인하고 들어오므로 현 메서드 내에서의 잔고로 최소 1주는 살 수 있다.
-                        ### (max와 min을 통해, 결정한 매수 단위가 최대 단일 거래 단위를 넘어가면 최대 단일 거래 단위로 제한하고, 최소한 최소 거래 단위만큼을 살 수 있다.)
+                    int(self.balance / (curr_price * (1 + self.TRADING_CHARGE))),
+                    self.max_trading_unit),
+                    self.min_trading_unit)
+                # (최소가 1, 최대가 2라면) 최소 1단위에서 최대 2단위까지 최대한 매수하며, 1.5단위의 경우에는 max보다 작고 min보다 크기 때문에
+                # 그 단위만큼 사는 것이다. (이 1.5단위가 보유 현금으로 최대 구매 가능한 매수 단위인 것이다. 물론 int가 있어서 1.5는 1로 대체될 것이다.)
+                # 즉 "self.balance / (curr_price * (1+self.TRADING_CHARGE))" 가 최대구매가능단위를 뜻하므로 1.5가 나오면
+                # 앞의 min과 max에 따라 1.5만큼 최대 구매 하는 것 (다른 값이 나오면 최대 최소 비교해 본 상황에 따라 다를 것)
+                # 또한, 적어도 1주를 살 수 있는지를 이 메서드 제일 첫 부분인 self.validate_action에서 확인하고 들어오므로 현 메서드 내에서의 잔고로 최소 1주는 살 수 있다.
+                ### (max와 min을 통해, 결정한 매수 단위가 최대 단일 거래 단위를 넘어가면 최대 단일 거래 단위로 제한하고, 최소한 최소 거래 단위만큼을 살 수 있다.)
+
+                # TODO 위의 주석은 옳으나, 한정적으로 옳다. 최대 살 수 있는 단위와 max와 min의 차이가 아래 주석과 같다면 문제가 생긴다. --> 확인 필수!
+                """
+                여기서 의문점이 있다. 
+                confidece가 높기 때문에 거래 단위가 늘어나서 10개를 사도 된다는 decide_trading_unit의 결과가 나왔다고 하자. 
+                그런데 현재 내 balance로 몇 개를 살 수 있는가 봤더니 (self.balance / (curr_price * (1+self.TRADING_CHARGE))) 7개만 살 수 있다고 한다.
+                이때 만일 max_trading_unit이 5라면, "보유 현금이 모자랄 경우 보유 현금으로 가능한만큼 최대한 매수" 라고 해놓고 결국 5개 밖에 못사게 된다.
+                (그 이유는 min(int(self.balance / (curr_price * (1 + self.TRADING_CHARGE))), self.max_trading_unit) 이니까.)
+                그럼 7개를 살 수 있는 balance를 가졌음에도, 즉 보유 현금이 모자라지 않은 경우(7개를 살 수 있는 상황)임에도 왜 보유 현금으로 가능한만큼 최대한 매수(5개 매수)라는 표현을 썼을까
+                
+                --> 이는 7개를 사면 좋다고 할지라도, max와 min의 범위 내에서만 거래가 이루어져야 (안전)하기 때문인 것인가? 
+                
+                --> 거래 단위를 max와 min으로 나누어 놓은 이유가 max는 상황이 좋을 경우 거래를 늘려 더 많은 이익을 보기 위해서이며, min은 상황이 좋지 않은 경우 손실을 피하기 위함이다.
+                    그렇다면 지금 상황과 같은 경우(7개 살 수 있으며 이대로 사면 이득인데 5개 밖에 못사는 경우)는 문제가 있다고 생각.
+                    
+                --> 현재 trading_unit은 max(~, self.min_trading_unit)으로 되어있는데, 이를 max(~, self.max_trading_unit)으로 고치거나 (이렇게하면 max(7,5)니까 7만큼 매수 가능),
+                    아예 max_trading_unit의 한도를 없애는 것은 어떠한가. max가 balance나 num_stock의 범위만 넘어가지 않도록 상황마다 조건을 걸어주면 되지 않나? (현재도 그렇게 하는 듯 하다.)
+                    아래 코드 처럼.
+                    
+                    --> 
+                    if balance < 0:     # --> (trading_unit만큼 구매하면) 보유 현금이 모자란 경우
+                        if trading_unit > int(self.balance / (curr_price * (1 + self.TRADING_CHARGE))):     # --> (당연히 그 trading_unit보다는 작게, 즉) 보유 현금으로 가능한만큼 최대한 매수 
+                            trading_unit = int(self.balance / (curr_price * (1 + self.TRADING_CHARGE)))     # --> 이렇게해야 max_trading_unit보다 더 매수할 수 있음에도 매수를 못하는 경우를 방지할 수 있다. 
+                            
+                    --> 그리고 이렇게해야 맞다고 생각하는 또 다른 이유는 밑에서 매도의 trading_unit을 판단할 때는 max_trading_unit과 min_trading_unit으로 비교하거나 조건을 두고 따지지 않는다.
+                """
 
             # 수수료를 적용하여 총 매수 금액 산정
             invest_amount = curr_price * (1 + self.TRADING_CHARGE) * trading_unit
@@ -255,15 +287,16 @@ class Agent:
             # 매도할 단위를 판단
             trading_unit = self.decide_trading_unit(confidence)
 
-            # TODO 매도 후의 잔금 확인은 없는가? --> 잔금 확인이 아니라, 즉 balance<0이 아니라 self.num_stocks<0을 확인해야할 것 같음 --> 체크 필수!
-            #  --> A: 그래서 바로 아래 줄에서 min으로 최소 매도 수량을 정한다. 그렇다면 Q-1.최소 매도 수량은 1일텐데 아예 없으면 문제가 있지 않은가 라는 질문에 대한 답은
-            #  --> A-1: 이 메서드의 제일 첫 부분에 self.validate_action으로 매수/매도가 최소 단위로라도 가능한지 확인부터 한다.
+            # TODO 매도 후의 잔금 확인은 없는가? --> 잔금 확인이 아니라, 즉 balance<0이 아니라 self.num_stocks<0을 확인해야함
+            #  --> A: 그래서 바로 아래 줄에서 min으로 최소 매도 수량을 정한다. 그렇다면 Q_1.최소 매도 수량은 1일텐데 아예 없으면 문제가 있지 않은가(, 즉 trading_unit이 0이 되면 어떻게하느냐)라는 질문에 대한 답은
+            #  --> A_1: 이 메서드의 제일 첫 부분에 self.validate_action으로 매수/매도가 최소 단위로라도 가능한지 확인부터 하므로 문제없다.
+            #  ==> 정리하자면 self.num_stocks<0 이어야 한다는 조건은 validate에서 했고, num_stocks>trading_unit을 따져야 하는데 이게 아래의 min(trading_unit, self.num_stocks)와 같다.
 
             # 보유 주식이 모자랄 경우 가능한 만큼 최대한 매도 (결정한 매도 단위가 현재 보유한 주식 수보다 많으면 안되므로, 현재 보유 주식 수를 최대 매도 단위로 제한한다.)
             trading_unit = min(trading_unit, self.num_stocks)
 
             # 수수료를 적용하여 총 매도 금액 산정
-            invest_amount = curr_price * (1 - (self.TRADING_TAX + self.TRADING_CHARGE)) * trading_unit
+            invest_amount = (curr_price * (1 - (self.TRADING_TAX + self.TRADING_CHARGE))) * trading_unit
             self.balance += invest_amount       # 보유 현금을 갱신
             self.num_stocks -= trading_unit     # 보유 주식 수를 갱신
             self.num_sell += 1      # 매도 횟수 증가
@@ -275,15 +308,17 @@ class Agent:
 
         # 포트폴리오 가치 갱신
         # profitloss: 기준 포트폴리오 가치에서 현재 포트폴리오 가치의 등락률을 계산한다.
-        # base_portfolio_value: 기준 포트폴리오 가치는 과거에 학습을 수행한 시점의 포트폴리오 가치를 의미한다.
-        self.portfolio_value = self.balance + curr_price * self.num_stocks      # 위의 과정을 통해 세 가지 변수 모두 값이 변경되었으므로 포트폴리오 가치를 갱신해준다.
-        profitloss = (self.portfolio_value - self.base_portfolio_value) / self.base_portfolio_value     # 비율 (소수 / %)
+        # base_portfolio_value: 기준 포트폴리오 가치는 직전 학습 시점의 포트폴리오 가치를 의미한다.
+        self.portfolio_value = self.balance + (curr_price * self.num_stocks)      # 위의 과정을 통해 세 가지 변수 모두 값이 변경되었으므로 포트폴리오 가치를 갱신해준다.
+        profitloss = (self.portfolio_value - self.base_portfolio_value) / self.base_portfolio_value     # ratio
 
         # 즉시 보상 판단
+        # TODO (profitloss가 0인 경우가 거의 없겠지만) 포트폴리오 가치의 등락률이 0인 경우에도 긍정 보상을 주는 경우는 재고의 여지가 있다고 판단된다.
         self.immediate_reward = 1 if profitloss >= 0 else -1
 
         # 지연 보상 판단
         # delayed_reward_threshold는 지연 보상 임계치로, 손익률이 이 값을 넘으면 지연 보상이 발생한다.
+        # 지연 보상 임계치를 넘어야 기준 포트폴리오 가치(base_portfolio_value)의 갱신이 이루어진다.
         if profitloss > self.delayed_reward_threshold:      # 포트폴리오 가치의 등락률인 profitloss가 지연 보상 임계치를 수익으로 초과하는 경우
             delayed_reward = 1
             # 목표 수익률을 달성하였으므로(달성하고) 기준 포트폴리오 가치 갱신
@@ -294,9 +329,30 @@ class Agent:
             # 손실 기준치를 초과하였으므로(초과하고) 기준 포트폴리오 가치 갱신
             self.base_portfolio_value = self.portfolio_value
 
-        else:
+        else:                                               # 포트폴리오 가치의 등락률인 profitloss가 지연 보상 임계치와 같다면 긍정이든 부정이든 보상이 없다.
             delayed_reward = 0
+
         return self.immediate_reward, delayed_reward
+        """
         # RLTrader는 지연 보상(delayed_reward)이 0이 아닌! 경우 학습을 수행한다.
         # 즉 지연 보상 임계치를 초과하는 수익이 났으면 이전에 했던 행등들을 잘했다고 판단하여 긍정적으로(positive) 학습하고,
         # 지연 보상 임계치를 초과하는 손실이 났으면 이전 행동들에 문제가 있다고 판단하여 부정적으로(negative) 학습한다.
+        """
+
+    """
+    즉시 보상 판단을 하는 이유는 지연 보상 판단을 할 수 있게 될 때까지 시간이 걸리기 때문에 그 때까지의 학습에 대해 기준이 되는 방향을 정해주기 위해서이다.
+    예를 들어 5일 거래를 한 뒤에 threshold를 넘었다고 할 경우, 1일차는 랜덤 결정이고 2,3,4,5일차의 행동 선택에 대한 기준/방향이 있어야 한다. 
+    이때 매일 거래마다 즉시 보상을 해줌으로써 양의 수익을 얻으면 +1을, 음의 손해를 입으면 -1을 가감해줌으로써 지연 보상 시점 전까지의 학습 방향을 정해준다.
+    
+    --> 이때 문제가 발행한다. 
+        즉시 보상을 판단할 때도 지연 보상 판단과 마찬가지로 profitloss로 그 기준을 정하는데, profitloss는 현재 포트폴리오 가치와 기준 포트폴리오 가치의 등락률로 결정된다.
+        이때 기준 포트폴리오 가치(base_portfolio_value)는 직전 학습 시점의 포트폴리오 가치이며 이는 학습이 될 때마다 기준 포트폴리오 가치가 갱신된다는 뜻이다.
+        그런데 즉시 보상을 판단할 때 profitloss를 사용한다면 이는 매 거래일 마다 profitloss가 갱신되어야한다는 것인데, 이것은 지연 보상이 발생하여 포트폴리오 가치를 갱신하는 것과 다른 것인가?
+        즉시와 지연 보상을 판단할 때 profitloss는 같아야 하는가? 그렇다면 즉시 보상마다 계산을 해야하는데 이러면 리소스를 많이 잡아 먹지 않나?
+        그렇다고 다르게 둔다면 어떻게 다르게 둬야 하는가?
+        
+        지연 보상 임계치를 넘을 때, 그때까지의 행동을 모아서 이게 옳구나 옳지 않구나를 학습하는 것 
+        그때까지의 행동들이 +3, -2면 임계치를 아슬아슬하게 넘고, +5면 확연히 넘을테니 다음에 행동할때는 최대한 +를 많이 받게 해야겠구나를 학습
+        지연 보상을 받을 때까지 즉시 보상들이 +1이 많아야 좋구나 라고 학습할 수 있도록 하기 위해 즉시와 지연으로 보상을 나누는 것
+        그러니 profitloss는 같이 쓰는 것 맞다.
+    """
