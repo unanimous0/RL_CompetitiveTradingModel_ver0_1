@@ -344,9 +344,8 @@ class PolicyLearner:
         if model_path is None:
             return
         self.policy_network.load_model(model_path=model_path)  # 학습된 정책 신경망 모델을 정책 신경망 객체의 load_model로 적용시킨다.
-        self.fit(balance=balance, num_epoches=1,
-                 learning=False)
+        self.fit(balance=balance, num_epoches=1, learning=False)
     # 이 trade() 함수는 학습된 정책 신경망으로 투자 시뮬레이션을 하는 것이므로 반복 투자를 할 필요가 없다.
     # 따라서 총 에포크 수 num_epoches를 1로 주고, learning 인자에 False를 넘겨준다.
     # 이렇게 하면 학습을 진행하지 않고 정책 신경망에만 의존하여 투자 시뮬레이션을 진행한다.
-    # (물론 무작위 투자는 수행하지 않는다. fit() 함수 인자의 learning이 False일 것이므로)
+    # (물론 무작위 투자는 수행하지 않는다. fit() 함수 인자의 learning이 False가 되어 epsilon이 0이 되므로.)
