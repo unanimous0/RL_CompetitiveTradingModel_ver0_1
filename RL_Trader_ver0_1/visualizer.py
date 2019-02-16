@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Author: EunHwan Koh
 
 # 가시화기 모듈(visualizer.py)은 정책 신경망을 학습하는 과정에서 에이전트의 투자 상황, 정책 신경망의 투자 결정 상황, 포트폴리오 가치의 상황을
@@ -88,7 +90,7 @@ class Visualizer:
 
         actions = np.array(actions)     # 에이전트의 행동 배열 --> actions는 리스트이고 Matplotlib는 Numpy-배열을 입력으로 받기 때문에 이에 맞게 변환해준다.
         outvals = np.array(outvals)     # 정책 신경망의 출력 배열 --> outvals는 리스트이고 Matplotlib는 Numpy-배열을 입력으로 받기 때문에 이에 맞게 변환해준다.
-        pvs_base = np.zeros(len(actions)) + initial_balance     # 초기 자본금 배열 (초기 자본금 직선): 포트폴리오 가치 차트에서 초기 자본금에 직선을 그어서,
+        pvs_base = np.zeros(len(actions)) + initial_balance     # 초기 자본금 배열 (초기 자본금 직선, 하나의 일정한 값으로만 이루어진 배열): 포트폴리오 가치 차트에서 초기 자본금에 직선을 그어서,
         # 포트폴리오 가치와 초기 자본금을 쉽게 비교할 수 있도록 배열(pvs_base)로 준비하여 직선이 되도록 한다. --> 예를 들어, np.zeros(10)은 0으로 구성된 10개의 1차원 배열이고,
         # 여기에 5000을 더하면 5000으로 구성된 10개의 1차원 배열이 된다. 즉 x축 길이만큼의 배열에 초기자본금을 더하면 해당 그래프에 초기 자본금을 처음부터 끝까지 직선으로 나타낼 수 있는 것이다.
 
@@ -140,19 +142,20 @@ class Visualizer:
 
 
         # 차트 4. 포트폴리오 가치
-        # fill_between()은 x축 배열과 두 개의 y축 배열을 입력으로 받는다. 두 개의 y축 배열의 같은 인덱스 위치의 값 사이에 색을 칠한다. (where 옵션으로 조건 지정 가능)
+        # fill_between()은 x축 배열과 두 개의 y축 배열(한 y축에 2개의 배열 데이터가 있는 것)을 입력으로 받는다. 두 y축 배열 데이터의 같은 인덱스 위치에서 서로의 값 사이에 색을 칠한다. (where 옵션으로 조건 지정 가능)
         self.axes[3].axhline(initial_balance, linestyle='-', color='gray')      # 초기 자본금을 가로로 그음으로써 손익을 쉽게 파악할 수 있게 한다.
         self.axes[3].fill_between(x, pvs, pvs_base, where=pvs>pvs_base, facecolor='r', alpha=0.1)       # pvs: 포트폴리오 가치 배열
-        self.axes[3].fill_between(x, pvs, pvs_base, where=pvs<pvs_base, facecolor='b', alpha=0.1)       # pvs_base: 초기 자본금 배열
+        self.axes[3].fill_between(x, pvs, pvs_base, where=pvs<pvs_base, facecolor='b', alpha=0.1)       # pvs_base: 초기 자본금 배열 (하나의 일정한 값(초기자본금)으로만 이루어진 배열이다.)
         self.axes[3].plot(x, pvs, '-k')
 
-        # TODO --> learning이 무엇인가?
+        # TODO --> learning이 무엇인가? --> [[지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], ...] --> 즉 지연보상위치와 지연보상값의 배열 말하는 듯 하다.
         for learning_idx, delayed_reward in learning:       # 학습을 수행한 위치를 표시한다.
             # 학습 위치 표시
             if delayed_reward > 0:
                 self.axes[3].axvline(learning_idx, color='r', alpha=0.1)
-            else:
+            else:       # 지연 보상이 0일 때도 부정 지연 보상과 동일하게 취급한다.
                 self.axes[3].axvline(learning_idx, color='b', alpha=0.1)
+
 
         # epoch 및 탐험 비율
         self.fig.suptitle("Epoch %s/%s (e=%.2f)" % (epoch_str, num_epoches, epsilon))
@@ -163,23 +166,28 @@ class Visualizer:
         plt.subplots_adjust(top=.9)
 
 
-    # Figure 초기화
+    # Figure 초기화 (첫 번째 axes는 제외)
     def clear(self, xlim):      # (입력으로 받는 xlim: 모든 차트의 x축 값 범위를 설정해 줄 튜플) --> 이때 xlim은 [0, len(self.chart_data)]이 된다.
         for ax in self.axes[1:]:
             ax.cla()        # matplotlib.pyplot.cla(): clear the current axes -->  학습 과정에서 변하지 않는 환경에 관한 차트(1번 차트)를 제외하고, 이 전에 그린 그 외의 차트들을 초기화한다.
             ax.relim()      # limit을 초기화한다. --> 이 전에 설정한 차트의 x축과 y축 값의 범위를 초기화한다.
             ax.autoscale()  # 스케일 재설정 (자동 크기 조정 기능 활성화)
 
-        # y축 레이블 재설정
+        # y축 레이블 (재)설정  --> policy_learner에서는 우선 첫 에포크를 포함하여 에포크가 시작할 때마다 모두 초기화(reset & clear)부터 하고 진행한다. 따라서 y축 레이블을 clear에 정의해도 문제 없다.
+        # TODO 문제는 없는데, 굳이 초기화할 때마다 y축 레이블도 초기화하는 이유는 무엇인가. 처음 각 axes들을 만들 때 한 번만 정의해두면 될 것 같은데 --> 다른 부분 다 해결한 후 마지막에 실행해본 다음 해결
+        # TODO <해결> 초기화를 하긴 해야겠고, axes들 생성 첫 부분에 y축 레이블을 정의해두면 초기화로 인해 다 날라가므로 어쩔 수 없이 초기화마다 재설정해줘야 하는 것.(같다.)
         self.axes[1].set_ylabel('Agent')    # Agent: Agent's actions & Number of holded stocks
         self.axes[2].set_ylabel('PN_Exp')   # PN_Exp: Outputs of Policy Network and Exploration
-        self.axes[3].set_ylabel('PV')       # PV: The value of ortfolio
+        self.axes[3].set_ylabel('PV')       # PV: The value of portfolio
         for ax in self.axes:
             ax.set_xlim(xlim)       # x축 lim 재설정 (x축 값의 범위 설정)
             ax.get_xaxis().get_major_formatter().set_scientific(False)      # x축과 y축의 값을 있는 그대로 보여주기 위해 단위 등의 과학적 표기 비활성화
             ax.get_yaxis().get_major_formatter().set_scientific(False)
             ax.ticklabel_format(useOffset=False)        # x축 간격을 값과 상관없이 일정하게 설정 (이는 x축 간격을 값에 맞게 설정한 것과는 다르다.)
                                                         # 이렇게 하는 이유는 일봉 차트의 경우 x축을 날짜로 지정하면 토요일 및 일요일과 같이 휴장하는 날에는 해당 차트가 비게 되기 때문이다. - 휴장 부분 표현 X
+                                                        # | | |   | |   |        -->         | | | | | |
+                                                        # 1 2 3   5 6   8        -->         1 2 3 5 6 8
+                                                        # x축 간격을 값에 맞게 조정한 결과          x축 간격을 값과 상관 없이 일정하게 설정한 결과
 
 
     # Figure 저장

@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Author: EunHwan Koh
+
 import time
 import datetime
 import locale

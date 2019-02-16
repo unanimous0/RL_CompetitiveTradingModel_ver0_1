@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Author: EunHwan Koh
 
 import pandas as pd

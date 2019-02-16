@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Author: EunHwan Koh
 
 # 정책 학습기 모듈(policy_learner.py)은 정책 학습기 클래스(PolicyLearner)를 가지고 일련의 학습 데이터를 준비하고 정책 신경망을 학습한다.)
@@ -8,7 +10,7 @@ import locale       # 통화(currency) 문자열 포맷을 위해 사용
 import logging      # 학습 과정 중 정보를 기록하기 위해 사용
 import settings     # 투자 설정, 로깅 설정 등을 위한 모듈로서 여러 상수 값들을 포함
 import numpy as np
-import time, datetime
+# import time, datetime
 from environment import Environment
 from agent import Agent
 from policy_network import PolicyNetwork
@@ -37,7 +39,10 @@ class PolicyLearner:
         self.training_data_idx = -1
 
         # 정책 신경망의 Input layer에 들어오는 입력의 크기 또는 특징의 수(17) = 학습 데이터의 크기(15) + 에이전트 상태의 크기(2)
-        # TODO --> self.training_data.shape의 [1]이 왜 학습 데이터의 크기인지 확인 --> shape가 2차원이면 (n,15)일 것이고, 여기서 행은 전체 갯수이고, 열의 갯수가 학습 데이터의 크기로 들어갈 특징의 갯수일 것이다.
+        # TODO self.training_data.shape의 [1]이 왜 학습 데이터의 크기인지 확인
+        # TODO <해결> shape가 2차원이면 (n,15)일 것이고, 여기서 행은 전체 갯수이고, 열의 갯수가 학습 데이터의 크기로 들어갈 특징의 갯수일 것이다.
+        #            shape가 2차원인 이유는 policy_network.py에서 설명했다.
+        #              --> "Sequential 클래스의 predict() 함수는 여러 샘플을 한번에 받아서 신경망의 출력을 반환한다. 하나의 샘플에 대한 결과만을 받고 싶어도 입력값을 샘플의 배열로 구성해야하기 때문에 2차원 배열로 재구성한다."
         self.num_features = self.training_data.shape[1] + self.agent.STATE_DIM
         # 정책 신경망 객체
         self.policy_network = PolicyNetwork(input_dim=self.num_features,
@@ -51,20 +56,23 @@ class PolicyLearner:
     def reset(self):
         self.sample = None              # 읽어들인 데이터는 self.sample에 저장된다. 단, 이 초기화 단계에서는 읽어들인 데이터가 없으므로 None값을 갖는다.
         self.training_data_idx = -1     # 학습 데이터를 다시 처음부터 읽기 위해 -1로 재설정 (학습 데이터를 읽어가며 이 값은 1씩 증가하는데, 읽어 온 데이터는 self.sample에 저장된다.)
-                                        # (초기화 단계에서는 읽어온 학습 데이터가 없기 때문에 self.sample을 None으로 할당한다.)
 
 
     # fit() 메서드: PolicyLearner 클래스의 핵심 함수
     """
     fit()의 Elements
-    max_memory: 배치(batch) 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열
-    balance: 에이전트의 초기 투자 자본금을 정해주기 위한 인자
-    discount_factor: !**지연 보상이 발생했을 때, 그 이전 지연 보상이 발생한 시점과 현재 지연 보상이 발생한 시점 사이에서 수행한 행동들 전체에 현재의! 지연 보상을 적용한다.
-                     이때 과거로 갈수록 현재 지연 보상을 적용할 판단 근거가 흐려지기 때문에, 먼 과거의 행동일수록 할인 요인(discout factor)을 적용하여 지연 보상을 약하게 적용한다.**!
-    start_epsilon: 초기 탐험 비율 (학습이 되어 있지 않은 초기에 탐험 비율을 크게 해서 더 많은 탐험, 즉 무작위 투자를 수행하도록 해야한다. 이러한 탐험을 통해 특정 상황에서
-                     좋은 행동과 그렇지 않은 행동을 결정하기 위한 경험을 쌓는다.) (탐험을 통한 학습이 지속적으로 쌓이게되면 탐험 비율을 줄여나간다.)
-    learning: 학습 유무를 정하는 boolean 값 (학습을 마치면 학습된 정책 신경망 모델이 만들어지는데, 이렇게 학습을 해서 정책 신경망 모델을 만들고자 한다면 learning을 True로,
-                     학습된 모델을 가지고 투자 시뮬레이션만 하려 한다면 False로 준다.)
+        max_memory:      배치(batch) 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열 (이 배열의 크기가 배치 학습 데이터의 크기와 같은 지 확인)
+        
+        balance:         에이전트의 초기 투자 자본금을 정해주기 위한 인자
+        
+        discount_factor: !**지연 보상이 발생했을 때, 그 이전 지연 보상이 발생한 시점과 현재 지연 보상이 발생한 시점 사이에서 수행한 행동들 전체에 현재의! 지연 보상을 적용한다.
+                         이때 과거로 갈수록 현재 지연 보상을 적용할 판단 근거가 흐려지기 때문에, 먼 과거의 행동일수록 할인 요인(discout factor)을 적용하여 지연 보상을 약하게 적용한다.**!
+                         
+        start_epsilon:   초기 탐험 비율 (학습이 되어 있지 않은 초기에 탐험 비율을 크게 해서 더 많은 탐험, 즉 무작위 투자를 수행하도록 해야한다. 이러한 탐험을 통해 특정 상황에서
+                         좋은 행동과 그렇지 않은 행동을 결정하기 위한 경험을 쌓는다.) (탐험을 통한 학습이 지속적으로 쌓이게되면 탐험 비율을 줄여나간다.)
+                         
+        learning:        학습 유무를 정하는 boolean 값 (학습을 마치면 학습된 정책 신경망 모델이 만들어지는데, 이렇게 학습을 해서 정책 신경망 모델을 만들고자 한다면 learning을 True로,
+                         이미 학습된 모델을 가지고 투자 시뮬레이션만 하려 한다면 False로 준다.)
     """
     def fit(self, num_epoches=1000, max_memory=60, balance=10000000, discount_factor=0, start_epsilon=0.5, learning=True):
         logger.info("LR: {l_rate}, DF: {discount_factor}, "
@@ -86,7 +94,7 @@ class PolicyLearner:
         epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (     # settings.BASE_DIR: 프로젝트 관련 파일들이 포함된 기본/루트 폴더 경로를 말한다.
             self.stock_code, settings.timestr))     # settings.timestr: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
         # epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary', '%s' % self.stock_code,
-        #                                  'epoch_summary_%s' % settings.timestr)
+        #                                  'epoch_summary_%s' % settings.timestr)       # --> 이렇게 코드를 작성하면 윈도우 계열, 리눅스 계열 OS에 상관없이 경로를 구성할 수 있다.
         if not os.path.isdir(epoch_summary_dir):
             os.makedirs(epoch_summary_dir)
 
@@ -100,26 +108,33 @@ class PolicyLearner:
         # 학습 반복
         for epoch in range(num_epoches):
             # 에포크 관련 정보 초기화
-            loss = 0.               # 정책 신경망의 결과가 학습 데이터와 얼마나 차이가 있는지를 저장
+            loss = 0.               # 정책 신경망의 결과가 학습/실제 데이터와 얼만큼 차이가 있는지 저장
             itr_cnt = 0             # 수행한 에포크 수를 저장 (반복 카운팅 횟수)
             win_cnt = 0             # 수행한 에포크 중에서 수익이 발생한 에포크 수를 저장 - 즉 포트폴리오 가치가 초기 자본금보다 높아진 에포크 수를 저장
-            exploration_cnt = 0     # 무작위 투자를 수행한 횟수를 저장
+            exploration_cnt = 0     # 무작위 투자(탐험)를 수행한 횟수를 저장
             batch_size = 0          # batch의 크기
-            pos_learning_cnt = 0    # 수익이 발생하여 긍정적 지연 보상을 준 수
+            pos_learning_cnt = 0    # 수익이 발생하여 긍정적 지연 보상을 준 횟수
             neg_learning_cnt = 0    # 손실이 발생하여 부정적 지연 보상을 준 수
 
             # 메모리 초기화
-            # TODO --> 탐험 위치 및 학습 위치, 정확히 어느 위치인지 잘 모르겠음 --> 체크 필수!
-            #       TODO --> Visualizer에서 만든 x축이 갖는 범위만큼의 idx들 중에서 탐험한 idx, 학습한 idx를 말하는 것.
+            # TODO Q_1.각 변수가 어떤 값과 모양을 갖는지 잘 모르겠음, Q_2.특히 탐험 위치 및 학습 위치, 정확히 어느 위치인지 잘 모르겠음 --> 체크 필수!
+            # TODO <해결> A_1. 우선 memory가 붙은 변수들 중 위 6개의 범위는 Visualizer에서 만든 x축이 갖는 범위만큼이며,
+            #                 x축이 갖는 각 idx에서의 샘플 데이터값, 행동값, 즉시보상값, 정책 신경망의 출력값, 포트폴리오의 가치값, 보유 주식 수 값을 각각 가진다.
+            #                 즉 쉽게 말해 x축의 범위인 거래일자마다의 샘플 데이터값, 행동값, 즉시보상값, 정책 신경망의 출력값, 포트폴리오의 가치값, 보유 주식 수 값을 가지는 것이다.
+            #            A_2. 탐험 위치와 학습 위치 역시 범위가 x축이 갖는 범위 만큼인 것은 맞지만, 이 둘은 x축이 갖는 범위만큼의 각 idx들 중에서 탐험한 idx, 학습한 idx만을 선택해서 가지는 것이다.
             memory_sample = []          # 샘플
             memory_action = []          # 행동
             memory_reward = []          # 즉시 보상
             memory_prob = []            # 정책 신경망의 출력
             memory_pv = []              # 포트폴리오 가치
             memory_num_stocks = []      # 보유 주식 수
-            memory_exp_idx = []         # 탐험 위치
-            memory_learning_idx = []    # 학습 위치
 
+            memory_exp_idx = []         # 탐험 위치
+            memory_learning_idx = []    # 학습 위치     # TODO memory_learning_idx가 무엇인지 정확히 파악 후 visualizer.py의 151번 줄 TODO 해결할 것 (151번줄에서 얘(memory_learning_idx == visualizer.py의 learning) 때문에 막힘)
+                                                      # TODO <해결> 지연 보상(으로 학습한) 위치와 지연 보상 값으로 이루어진 배열 --> [[지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], ...]
+                                                      #            이 학습 위치 변수의 이름을 바꿔야 할 필요가 있는 것 같다. --> 아래에서 memory_learning_idx.append([itr_cnt, delayed_reward])가 실행되므로 memory_learning_idx_val로 바꾼다.
+
+            # 아래 코드를 보면 알겠지만 첫 에포크를 포함하여 에포크가 시작할 때마다 우선 모두 초기화(reset & clear)부터 하고 진행한다.
             # 환경, 에이전트, 정책 신경망, 정책 학습기 초기화 (이 클래스들은 각자 reset 함수를 정의했었음 - 다른 클래스들은 따로 reset 메서드를 정의하지 않았음)
             self.environment.reset()                                                    # (cf. Visualizer는 clear 함수로 초기화 함)
             self.agent.reset()

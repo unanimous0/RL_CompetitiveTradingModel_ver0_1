@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Author: EunHwan Koh
 
 # 메인 모듈(main.py)은 주식투자 강화학습을 실행한다.
