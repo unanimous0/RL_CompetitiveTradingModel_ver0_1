@@ -192,7 +192,7 @@ P.107: policy_learner 모듈에서 수익이 발생한 에포크 수를 저장�
 
 P.110: policy_learner 모듈에서 학습 위치 변수인 memory_learning_idx를 --> memory_learning_idx_val로 변경 (policy_learner.py의 TODO 확인)
 
-P.:
+P.119: (변수는 아니지만) policy_learner 모듈에서 Max PV는 --> Max Portfolio Value로 & Win은 --> Wining Epoch Count로 변경
 
 P.:
 
