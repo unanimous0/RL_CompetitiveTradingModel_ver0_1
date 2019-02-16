@@ -148,7 +148,7 @@ class PolicyLearner:
         max_portfolio_value = 0     # max_portfolio_value: 학습 과정에서 달성한 최대 포트폴리오 가치를 저장하는 변수
         epoch_win_cnt = 0           # epoch_win_cnt: 수익이 발생한 에포크 수를 저장하는 변수
 
-        # 학습 반복
+        ### 학습 반복 for문 시작 ###
         for epoch in range(num_epoches):
             # 에포크 관련 정보 초기화
             loss = 0.               # 정책 신경망의 결과가 학습/실제 데이터와 얼만큼 차이가 있는지 저장
@@ -194,7 +194,7 @@ class PolicyLearner:
             else:                                                                       # num_epoches에서 1을 빼는 이유는 0부터 시작하기 때문이다. (표기는 1부터 시작하지만 실제 학습시에는 0부터 시작)
                 epsilon = 0
 
-            # 학습 함수의 Epoch 수행 while문
+            # (현재 for문 속에서 선택된) 하나의 Epoch에 대해 돌아가는 while문
             while True:
                 # 샘플 생성
                 next_sample = self._build_sample()      # 행동을 결정하기 위한 데이터인 샘플 준비
@@ -202,7 +202,7 @@ class PolicyLearner:
                     break
 
                 # 탐험 또는 정책 신경망에 의한 행동 결정 (E-Greedy: Exploration v.s Exploitation)
-                # decide_action()의 반환값 3가지: --> action: 결정한 행동, confidence: 결정(된 행동)에 대한 확신도, exploration: 무작위 투자 유무 (반환 값 중 action은 매수 또는 매도 둘 중 하나가 된다. - 이유는 5줄 아래 주석 참고)
+                # decide_action()의 반환값 3가지: --> action: 결정한 행동, confidence: 결정(된 행동)에 대한 확신도, exploration: 무작위 투자 유무 (반환 값 중 action은 매수 또는 매도 둘 중 하나가 된다. 관망 없음 - 이유는 5줄 아래 주석 참고)
                 action, confidence, exploration = self.agent.decide_action(     # Exploitation, 즉 정책 신경망의 출력은 매수, 매도를 했을 때의 포트폴리오 가치를 높일 확률을 의미한다.
                     self.policy_network, self.sample, epsilon)                  # 즉 매수에 대한 정책 신경망의 출력이 매도에 대한 출력보다 높으면 매수를, 그 반대의 경우에는 매도를 선택한다.
 
@@ -211,7 +211,8 @@ class PolicyLearner:
                                                                                             # action이 hold가 된다. 따라서) decide_action 함수에서 일단 action이 매수 또는 매도로 결정되고,
                                                                                             # act 함수 초반에 매수/매도 상황이 불가능한 경우인지 아닌지, 즉 관망인지 아닌지 아닌지를 판단하게 된다.
                                                                                             # 따라서 agent의 decide_action 함수가 반환하는 action은 우선 매수 또는 매도가 맞으며,
-                                                                                            # act 함수 초반에 validate 검사에 합격하여 실제로 행해지는 action이 그 매수 또는 매도가 될지, 혹은 검사에 실패하여 관망이 될지의 여부가 결정된다.
+                                                                                            # 그 뒤에 act 함수가 호출 됐을 때, 이 함수의 초반에 validate 검사에 합격하여 실제로 행해지는 action이
+                                                                                            # 그 매수 또는 매도가 될지, 혹은 검사에 실패하여 관망이 될지의 여부가 결정된다.
 
                 # 행동 및 행동에 대한 결과를 기억
                 # 아래의 메모리 변수들은 2가지 목적으로 사용된다. --> 1) 학습에서 배치 학습 데이터로 사용  2) Visualizer에서 차트를 그릴 때 사용
@@ -263,6 +264,7 @@ class PolicyLearner:
                 if delayed_reward == 0 and batch_size >= max_memory:        # 학습 없이 메모리가 최대 크기만큼 다 찼을 경우, 지연 보상을 즉시 보상으로 대체하여 학습을 진행
                     delayed_reward = immediate_reward
                     # self.agent.base_portfolio_value = self.agent.portfolio_value
+
                 if learning and delayed_reward != 0:        # 지연 보상이 발생한 경우
                     # 배치 학습 데이터 크기 (배치 학습에 사용할 배치 데이터 크기 결정)
                     batch_size = min(batch_size, max_memory)        # 배치 데이터 크기는 memory 변수의 크기인 max_memory 보다 작아야 한다.
@@ -315,6 +317,9 @@ class PolicyLearner:
             max_portfolio_value = max(max_portfolio_value, self.agent.portfolio_value)
             if self.agent.portfolio_value > self.agent.initial_balance:
                 epoch_win_cnt += 1
+
+        ### 학습 반복 for문 종료 ###
+
 
         # 최종 학습 (결과) 관련 정보 로그 기록
         logger.info("Max PV: %s, \t # Win: %d" % (
