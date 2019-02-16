@@ -58,6 +58,49 @@ class PolicyLearner:
         self.training_data_idx = -1     # 학습 데이터를 다시 처음부터 읽기 위해 -1로 재설정 (학습 데이터를 읽어가며 이 값은 1씩 증가하는데, 읽어 온 데이터는 self.sample에 저장된다.)
 
 
+    # 학습 데이터 샘플 생성
+    def _build_sample(self):
+        # TODO self.environment.observe() 함수는 특정 행의 데이터를 전부(D,O,H,L,C,V) 반환한다. --> 그런데 반환을 받아주는 변수가 없다?
+        #   --> 얘는 여기가 아니라 visualizer의 axes[0]을 그릴 때 필요한 것 같다. 그러나 심지어 거기서도 얘를 가공해서 쓰지않고 바로 chart_data에서 ohlcv를 가져와서 쓴다. --> 이 함수를 만든 이유를 파악할 수 없다. (envrironment.py의 get_price()가 사용하긴 한다.)
+        self.environment.observe()      # 환경 객체의 observe() 함수를 호출하여, 차트 데이터의 현재 인덱스에서 다음 인덱스 데이터를 읽도록 한다.
+        if len(self.training_data) > self.training_data_idx + 1:        # 학습 데이터의 다음 인덱스가 존재하는지 확인
+            self.training_data_idx += 1
+            # TODO sample은 policy_network.py에서 2차원으로 만들어주는 것이므로 여기서는 1차원 형태가 맞는지 확인 (※ 여기서 sample의 길이는 15이고, 아래에서 에이전트 상태가 추가되어야 feature 길이가 17이 되는 것이다. --> 이는 training_data의 feature 길이 역시 15[-1,15]라는 뜻이다.)
+            self.sample = self.training_data.iloc[self.training_data_idx].tolist()
+            self.sample.extend(self.agent.get_states())     # 현재까지 sample 데이터는 15개의 값으로 구성되어 있는데,extend()를 통해
+            return self.sample                              # sample에 에이전트 상태(2개)를 추가하여 17개의 값으로 구성되도록 한다.
+        return None
+
+
+    # TODO memory, sample, 그리고  batch_size가 정확히 무엇인지 알아야한다.
+    # TODO <해결> memory = [(memory_sample[i], memory_action[i], memory_reward[i]) for i in list(range(len(memory_action)))[-max_memory:]]
+    #            sample: training_data가 저장되므로 15(학습데이터)+2(상태데이터) 총 17개의 데이터를 같는 데이터)
+    #            batch_size: 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다.
+    # 미니 배치 데이터 생성
+    def _get_batch(self, memory, batch_size, discount_factor, delayed_reward):
+        # TODO 아래 np.zeros를 3차원이 아닌 2차원으로 만들면 안되나? --> np.zeros((batch_size, self.num_features))로.
+        x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터 및 에이전트 상태 (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
+        y = np.full((batch_size, self.agent.NUM_ACTIONS), 0.5)      # 일련의 지연 보상 (np.full() --> 첫 번째 인자는 shape이고(다차원일 경우 튜플로 넘겨야한다.), 두 번째 인자 값으로 배열을 채운다.
+
+        for i, (sample, action, reward) in enumerate(reversed(memory[-batch_size:])):       # 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다. 반면, 학습 데이터 특징의 크기와 에이전트 행동 수는 고정되어있다.
+            x[i] = np.array(sample).reshape((-1, 1, self.num_features))     # 특징 벡터 지정하고,
+            y[i, action] = (delayed_reward + 1) / 2                         # 지연 보상으로 정답(=Label, y)을 설정하여 학습 데이터를 구성
+            if discount_factor > 0 :                                            # --> 지연 보상이 1인 경우 1로 레이블을 지정하고, 지연 보상이 -1인 경우 0으로 레이블을 지정한다.
+                y[i, action] *= discount_factor ** i
+        return x, y
+
+
+    # (학습된 정책 신경망으로) 투자 시뮬레이션 진행
+    def trade(self, model_path=None, balance=2000000):
+        if model_path is None:
+            return
+        self.policy_network.load_model(model_path=model_path)           # 학습된 정책 신경망 모델을 정책 신경망 객체의 load_model로 적용시킨다.
+        self.fit(balance=balance, num_epoches=1, learning=False)        # 이 trade() 함수는 학습된 정책 신경망으로 투자 시뮬레이션을 하는 것이므로 반복 투자를 할 필요가 없다.
+                                                                        # 따라서 총 에포크 수 num_epoches를 1로 주고, learning 인자에 False를 넘겨준다.
+                                                                        # 이렇게 하면 학습을 진행하지 않고 정책 신경망에만 의존하여 투자 시뮬레이션을 진행한다.
+                                                                        # (물론 무작위 투자는 수행하지 않는다. fit() 함수 인자의 learning이 False일 것이므로)
+
+
     # fit() 메서드: PolicyLearner 클래스의 핵심 함수
     """
     fit()의 Elements
@@ -121,7 +164,7 @@ class PolicyLearner:
             # TODO <해결> A_1. 우선 memory가 붙은 변수들 중 위 6개의 범위는 Visualizer에서 만든 x축이 갖는 범위만큼이며,
             #                 x축이 갖는 각 idx에서의 샘플 데이터값, 행동값, 즉시보상값, 정책 신경망의 출력값, 포트폴리오의 가치값, 보유 주식 수 값을 각각 가진다.
             #                 즉 쉽게 말해 x축의 범위인 거래일자마다의 샘플 데이터값, 행동값, 즉시보상값, 정책 신경망의 출력값, 포트폴리오의 가치값, 보유 주식 수 값을 가지는 것이다.
-            #            A_2. 탐험 위치와 학습 위치 역시 범위가 x축이 갖는 범위 만큼인 것은 맞지만, 이 둘은 x축이 갖는 범위만큼의 각 idx들 중에서 탐험한 idx, 학습한 idx만을 선택해서 가지는 것이다.
+            #            A_2. 탐험 위치와 학습 위치 역시 범위가 x축이 갖는 범위 만큼인 것은 맞지만, 이 둘은 x축이 갖는 범위만큼의 각 idx들 중에서 탐험한 idx와학습한 idx만을 선택해서 가지는 것이다.
             memory_sample = []          # 샘플
             memory_action = []          # 행동
             memory_reward = []          # 즉시 보상
@@ -178,14 +221,13 @@ class PolicyLearner:
                 memory_pv.append(self.agent.portfolio_value)
                 memory_num_stocks.append(self.agent.num_stocks)
 
-                # TODO --> 3차원이 아니라 2차원이라고?
                 memory = [(memory_sample[i],            # 위의 항목들(sample, action, reward)을 모아서 하나의 2차원 배열로 만든다.
                            memory_action[i],
                            memory_reward[i])
                           for i in list(range(len(memory_action)))[-max_memory:]        # -max_memory의 수만큼을 반복시킨다. (max_memory가 60이므로 [-60:]은 60개이다.
                 ]
                 """
-                저 memory 부분 참고 (다시 볼 때 이해한 후 지울 것)
+                위의 memory 부분 참고 (다시 볼 때 이해한 후 지울 것)
 
                 *** [-max_memory:] 부분 --> 어렵게 생각하지 말 것
                 a = np.array([1,2,3,4,5])
@@ -193,7 +235,7 @@ class PolicyLearner:
                 a[-5:-1] --> 1,2,3,4
                 a[-4:] --> 2,3,4,5
 
-                *** 3차원이 아닌 2차원인 이유 --> 제대로 볼 것
+                *** memory가 3차원이 아닌 2차원인 이유 --> 제대로 볼 것
                 배열만으로 이루어진 2차원 == [[], [], ...]
                 배열과 튜플로 이루어진 2차원 == [(), (), ...]
                 즉 memory는 [] 안에 여러 개의 ()이 반복문으로 들어간다.
@@ -204,40 +246,39 @@ class PolicyLearner:
                     # TODO --> itr_cnt가 수행한 에포크 수(반복 카운팅 횟수)를 저장하는 변수인데, 현재의 인덱스라고? --> 체크 필수! (에포크 수(돌아가는 에포크의 넘버)를 인덱스로 가져가는 건가? --> 체크 필수!
                     memory_exp_idx.append(itr_cnt)      # 무작위 투자로 행동을 결정한 경우, memory_exp_idx에 현재의 인덱스를 저장한다.
                     memory_prob.append([np.nan] * Agent.NUM_ACTIONS)        # memory_prob는 정책 신경망의 출력을 그대로 저장하는 배열인데, 무작위 투자에서는 정책 신경망의 출력이 없기 때문에 nan값을 준다.
-                                                                            # [np.nan] * 2이므로 [nan, nan]이 된다.
+                                                                            # [np.nan] * 2이므로 [nan, nan]이 된다. --> [매수확률이 nan, 매도확률이 nan]
                 else:
-                    memory_prob.append(self.policy_network.prob)            # 무작위 투자가 아닌 경우, 정책 신경망의 출력을 그대로 memory_prob에 저장한다.
+                    memory_prob.append(self.policy_network.prob)            # 무작위 투자가 아닌 경우, 정책 신경망의 출력을 그대로 memory_prob에 저장한다. (정책 신경망의 출력: [매수확률, 매도확률])
 
+                # 학습 함수의 반복에 대한 정보 갱신
+                # TODO --> batch_size를 왜 1씩 증가시키지?? 내가 알고있는 batch의 개념이 아닌가? --> 체크 필수!
+                batch_size += 1
+                itr_cnt += 1
+                exploration_cnt += 1 if exploration else 0
+                win_cnt += 1 if delayed_reward > 0 else 0       # 지연 보상 임계치를 초과하는 수익이 났으면 이전에 했던 행등들을 잘했다고 판단하여 긍정적으로(positive) 학습한다.
 
-                    # 학습 함수의 반복에 대한 정보 갱신
-                    # TODO --> batch_size를 왜 1씩 증가시키지?? 내가 알고있는 batch의 개념이 아닌가? --> 체크 필수!
-                    batch_size += 1
-                    itr_cnt += 1
-                    exploration_cnt += 1 if exploration else 0
-                    win_cnt += 1 if delayed_reward > 0 else 0       # policy_network.py에서 지연 보상 임계치를 초과하는 수익이 났으면 이전에 했던 행등들을 잘했다고 판단하여 긍정적으로(positive) 학습한다.
-
-                    # TODO --> 이 부분부터 마지막 끝까지 다시 이해하기 (헷갈림) --> 체크 필수!!!
-                    # 학습 함수의 정책 신경망 학습 부분: 지연 보상이 발생한 경우 학습을 수행하는 부분을 보여준다.
-                    # 학습 모드이고 지연 보상이 존재할 경우 정책 신경망 갱신
-                    if delayed_reward == 0 and batch_size >= max_memory:        # 학습 없이 메모리가 최대 크기만큼 다 찼을 경우, 지연 보상을 즉시 보상으로 대체하여 학습을 진행
-                        delayed_reward = immediate_reward
-                        # self.agent.base_portfolio_value = self.agent.portfolio_value
-                    if learning and delayed_reward != 0:        # 지연 보상이 발생한 경우
-                        # 배치 학습 데이터 크기 (배치 학습에 사용할 배치 데이터 크기 결정)
-                        batch_size = min(batch_size, max_memory)        # 배치 데이터 크기는 memory 변수의 크기인 max_memory 보다 작아야 한다.
-                        # 배치 학습 데이터 생성
-                        x, y = self._get_batch(memory, batch_size, discount_factor, delayed_reward)     # _get_batch() 함수를 통해 배치 데이터를 준비한다.
-                        if len(x) > 0:
-                            if delayed_reward > 0:
-                                pos_learning_cnt += 1
-                            else:
-                                neg_learning_cnt += 1
-                            # 정책 신경망 갱신
-                            loss += self.policy_network.train_on_batch(x, y)        # 준비한 배치 데이터로 학습 진행 --> 학습은 정책 신경망 객체의 train_on_batch() 함수로 수행한다.
-                            memory_learning_idx.append([itr_cnt, delayed_reward])
-                        # TODO --> 내가 아는 batch의 개념이 아닌 듯함 --> 왜 0으로 초기화를 하는지? 체크 필수!
-                        # TODO --> 책 p.56 읽어볼 것 (내가 아는 batch의 개념이 맞기는 한데, 조건이 걸린 batch이다.)      # "배치 데이터의 크기는 지연 보상이 발생될 때 결정되기 때문에 매번 다르다."
-                        batch_size = 0
+                # TODO --> 이 부분부터 마지막 끝까지 다시 이해하기 (헷갈림) --> 체크 필수!!!
+                # 학습 함수의 정책 신경망 학습 부분: 지연 보상이 발생한 경우 학습을 수행하는 부분을 보여준다.
+                # 학습 모드이고 지연 보상이 존재할 경우 정책 신경망 갱신
+                if delayed_reward == 0 and batch_size >= max_memory:        # 학습 없이 메모리가 최대 크기만큼 다 찼을 경우, 지연 보상을 즉시 보상으로 대체하여 학습을 진행
+                    delayed_reward = immediate_reward
+                    # self.agent.base_portfolio_value = self.agent.portfolio_value
+                if learning and delayed_reward != 0:        # 지연 보상이 발생한 경우
+                    # 배치 학습 데이터 크기 (배치 학습에 사용할 배치 데이터 크기 결정)
+                    batch_size = min(batch_size, max_memory)        # 배치 데이터 크기는 memory 변수의 크기인 max_memory 보다 작아야 한다.
+                    # 배치 학습 데이터 생성
+                    x, y = self._get_batch(memory, batch_size, discount_factor, delayed_reward)     # _get_batch() 함수를 통해 배치 데이터를 준비한다.
+                    if len(x) > 0:
+                        if delayed_reward > 0:
+                            pos_learning_cnt += 1
+                        else:
+                            neg_learning_cnt += 1
+                        # 정책 신경망 갱신
+                        loss += self.policy_network.train_on_batch(x, y)        # 준비한 배치 데이터로 학습 진행 --> 학습은 정책 신경망 객체의 train_on_batch() 함수로 수행한다.
+                        memory_learning_idx.append([itr_cnt, delayed_reward])
+                    # TODO --> 내가 아는 batch의 개념이 아닌 듯함 --> 왜 0으로 초기화를 하는지? 체크 필수!
+                    # TODO --> 책 p.56 읽어볼 것 (내가 아는 batch의 개념이 맞기는 한데, 조건이 걸린 batch이다.)      # "배치 데이터의 크기는 지연 보상이 발생될 때 결정되기 때문에 매번 다르다."
+                    batch_size = 0
 
             # 에포크 관련 정보 가시화
             # TODO --> 왜 len(str(num_epoches))가 0~1000 중 하나의 숫자가 나올 수 있는지 모르겠음 --> 체크 필수!
@@ -275,43 +316,8 @@ class PolicyLearner:
             if self.agent.portfolio_value > self.agent.initial_balance:
                 epoch_win_cnt += 1
 
-
         # 최종 학습 (결과) 관련 정보 로그 기록
         logger.info("Max PV: %s, \t # Win: %d" % (
             locale.currency(max_portfolio_value, grouping=True), epoch_win_cnt))
 
-
-    # TODO --> Sample과 Batch_size가 정확히 무엇인지 알아야한다. (Sample: training_data가 저장되므로 15(학습데이터)+2(상태데이터) 총 17개의 데이터를 같는 데이터)
-    # TODO                                               (Batch_size: 64)
-    # 미니 배치 데이터 생성
-    def _get_batch(self, memory, batch_size, discount_factor, delayed_reward):
-        x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터 및 에이전트 상태 (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
-        y = np.full((batch_size, self.agent.NUM_ACTIONS), 0.5)      # 일련의 지연 보상 (np.full() --> 첫 번째 인자는 shape이고(다차원일 경우 튜플로 넘겨야한다.), 두 번째 인자 값으로 배열을 채운다.
-
-        for i, (sample, action, reward) in enumerate(reversed(memory[-batch_size:])):       # 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다. 또한, 학습 데이터 특징의 크기와 에이전트 행동 수는 고정되어있다.
-            x[i] = np.array(sample).reshape((-1, 1, self.num_features))     # 특징 벡터 지정하고,
-            y[i, action] = (delayed_reward + 1) / 2                         # 지연 보상으로 정답(=Label, y)을 설정하여 학습 데이터를 구성
-            if discount_factor > 0 :                                            # --> 지연 보상이 1인 경우 1로 레이블을 지정하고, 지연 보상이 -1인 경우 0으로 레이블을 지정한다.
-                y[i, action] *= discount_factor ** i
-        return x, y
-
-
-    # 학습 데이터 샘플 생성
-    def _build_sample(self):
-        self.environment. observe()      # 환경 객체의 observe() 함수를 호출하여, 차트 데이터의 현재 인덱스에서 다음 인덱스 데이터를 읽도록 한다.
-        if len(self.training_data) > self.training_data_idx + 1:        # 학습 데이터의 다음 인덱스가 존재하는지 확인
-            self.training_data_idx += 1
-            self.sample = self.training_data.iloc[self.training_data_idx].tolist()
-            self.sample.extend(self.agent.get_states())     # 현재까지 sample 데이터는 15개의 값으로 구성되어 있는데,extend()를 통해
-            return self.sample                              # sample에 에이전트 상태(2개)를 추가하여 17개의 값으로 구성되도록 한다.
-        return None
-
-
-    # (학습된 정책 신경망으로) 투자 시뮬레이션 진행
-    def trade(self, model_path=None, balance=2000000):
-        if model_path is None:
-            return
-        self.policy_network.load_model(model_path=model_path)           # 학습된 정책 신경망 모델을 정책 신경망 객체의 load_model로 적용시킨다.
-        self.fit(balance=balance, num_epoches=1, learning=False)        # 이 trade() 함수는 학습된 정책 신경망으로 투자 시뮬레이션을 하는 것이므로 반복 투자를 할 필요가 없다.
-                                                                        # 따라서 총 에포크 수 num_epoches를 1로 주고, learning 인자에 False를 넘겨준다.
-                                                                        # 이렇게 하면 학습을 진행하지 않고 정책 신경망에만 의존하여 투자 시뮬레이션을 진행한다. (물론 무작위 투자는 수행하지 않는다.)
+        ##### 여기까지가 fit() 함수의 영역이다. #####

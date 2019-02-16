@@ -59,6 +59,7 @@ class Visualizer:
 
         ax = self.axes[0].twinx()       # 2개의 y축 사용: y축을 volume(좌), stock_price(우) 2개로 만든다.
 
+        # TODO 아래 ohlc 변수의 "np.array(chart_data)[:, 1:-1]" 대신 environment.py의 get_ohlc() 함수를 써도 결과는 같을 것이다.
         # horizen-stack이므로, 인덱스 배열(x.reshape(-1,1) + D와 V를 제외한 차트 데이터 일부인 OHLC(np.array(chart_data)[:, 1:-1]) <-- hstack을 쓰려면 행의 수가 같아야한다.
         ohlc = np.hstack((x.reshape(-1,1), np.array(chart_data)[:, 1:-1]))
         # self.axes[0]에 봉 차트 출력

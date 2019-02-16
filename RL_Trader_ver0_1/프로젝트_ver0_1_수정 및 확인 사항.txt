@@ -23,6 +23,7 @@ selfQ. 이런저런 데이터와 알고리즘을 가져와서 예측을 한다�
 ==========================================================================================
 
 
+<여기 써있지 않은 코드의 TODO들도 해결해야한다.)
 
 P.73: 에이전트 상태 다양화
 
@@ -85,7 +86,13 @@ P.114: itr_cnt는 "수행한 에포크 수" 라더니 웬 인덱스?
 
 P.121: 이렇게 호출만 할거면 environment 모듈에서 이 함수 return은 왜 한거야? (--> 여러모로 따져보았을 때, 이 책 코드의 완성 상태가 그렇게 좋은 것 같지는 않음)
 
-P.:
+P.**: > chart_data: 주식 종목의 차트 데이터, 즉 특정 기업의 DOHLCV를 가지고 있는 데이터
+
+      > sample: 15개의 학습 데이터와 2개의 에이전트 상태 데이터가 합쳐져 17개의 속성을 갖는 정책 신경망 입력 데이터(훈련 데이터)
+        - training_data도 sample과 같은 형식이다.
+          - 라고 하는데 정확히 sample & next_sample & training_data의 값과 형식이 무엇인지 파악해야한다!
+          - policy_learner.py를 보면 "self.sample = self.training_data.iloc[self.training_data_idx].tolist()" 라는 코드가 있다.
+          - 이에 따라 sample은 (policy_network.py에서 2차원으로 만들면) [1,15]이고, training_data는 이러한 sample의 모임, 즉 [-1,15]인 듯 하다. (에이전트의 상태 feature는 해당 코드 바로 밑에 "self.sample.extend(self.agent.get_states())"를 통해 추가되는 것이다. 따라서 training_data에서 나온 sample은 길이가 15가 맞고, 이 코드들을 가지는 _build_sample 함수의 반환값인 sample이 [1,17]이 되는 것이다.--> 확인 필요!
 
 P.:
 
@@ -201,6 +208,9 @@ P.:
 
 > sample: 15개의 학습 데이터와 2개의 에이전트 상태 데이터가 합쳐져 17개의 속성을 갖는 정책 신경망 입력 데이터(훈련 데이터)
     - training_data도 sample과 같은 형식이다.
+       - 라고 하는데 정확히 sample & next_sample & training_data의 값과 형식이 무엇인지 파악해야한다!
+       - policy_learner.py를 보면 "self.sample = self.training_data.iloc[self.training_data_idx].tolist()" 라는 코드가 있다.
+       - 이에 따라 sample은 (policy_network.py에서 2차원으로 만들면) [1,15]이고, training_data는 이러한 sample의 모임, 즉 [-1,15]인 듯 하다. (에이전트의 상태 feature는 해당 코드 바로 밑에 "self.sample.extend(self.agent.get_states())"를 통해 추가되는 것이다. 따라서 training_data에서 나온 sample은 길이가 15가 맞고, 이 코드들을 가지는 _build_sample 함수의 반환값인 sample이 [1,17]이 되는 것이다.--> 확인 필요!
 
 > Environment 클래스
     - 생성자에서 chart_data 사용
