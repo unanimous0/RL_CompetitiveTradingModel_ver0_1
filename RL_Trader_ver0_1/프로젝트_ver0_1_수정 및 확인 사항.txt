@@ -163,6 +163,20 @@ P.83: agent 모듈에서 포트폴리오 가치의 등락률 변수인 profitlos
 
 P.84: policy_network 모듈에서 agent 모듈에서 쓰이는 probs와 같은 용도로 사용되는 prob 변수를 --> probs로 그리고 이를 다시 --> probabilities로 변경
 
+P.96: visualizer 모듈에서 에이전트가 수항할 수 있는 전체 행동 리스트 변수인 action_list를 --> possible_action_list로 변경
+
+P.96: visualizer 모듈에서 에이전트가 수행한 행동 배열 변수인 actions를 --> performed_actions로 변경
+
+P.96: visualizer 모듈에서 정책 신경망의 출력 배열 변수인 outvals를 --> output_values로 변경
+
+P.96: visualizer 모듈에서 탐험 여부 배열 변수인 exps를 --> explorations로 변경
+
+P.96: visualizer 모듈에서 포트폴리오 가치 배열 변수인 pvs를 --> portfolio_values로 변경
+
+P.:
+
+P.:
+
 P.:
 
 P.:
@@ -170,6 +184,17 @@ P.:
 P.:
 
 P.:
+
+P.:
+
+P.:
+
+P.:
+
+P.:
+
+P.:
+
 
 
 > chart_data: 주식 종목의 차트 데이터, 즉 특정 기업의 DOHLCV를 가지고 있는 데이터
