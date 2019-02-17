@@ -37,7 +37,7 @@ if __name__ == "__main__":
                                   & (training_data['date'] <= '2017-12-31')]
     training_data = training_data.dropna()
 
-    # 데이터를 강화학습에 필요한 차트 데이터와 학습 데이터로 분리하기
+    # 데이터를 강화학습에 필요한 차트 데이터와 학습 데이터로 분리하기 --> 여러 feature를 가진 training_data는 필요한 부분들(DOHLCV의 차트 데이터와 15개의 feature를 가진 학습 데이터)로 떼어낸다.
     # 차트 데이터 분리
     features_chart_data = ['date', 'open', 'high', 'low', 'close', 'volume']
     chart_data = training_data[features_chart_data]
@@ -76,6 +76,9 @@ if __name__ == "__main__":
 
 
     # 강화학습 시작
+    # TODO max_trading_unit과 min_trading_unit의 차이가 2 이상이 되도록 시도해볼 것
+    # TODO delayed_reward_threshold가 0.2면 너무 높은 것 같다. --> 0.05 등으로 변경 후 시도해볼 것
+    # TODO discount_factor가 0 이므로, 제대로 할인이 될 수 있는 값을 지정 후 시도해볼 것
     policy_learner = PolicyLearner(stock_code=stock_code, chart_data=chart_data, training_data=training_data,
                                    min_trading_unit=1, max_trading_unit=2, delayed_reward_threshold=0.2, l_rate=0.001)
     policy_learner.fit(balance=10000000, num_epoches=1000, discount_factor=0, start_epsilon=0.5)
@@ -84,5 +87,5 @@ if __name__ == "__main__":
     model_dir = os.path.join(settings.BASE_DIR, 'models/%s' % stock_code)       # 저장할 폴더 경로 지정
     if not os.path.isdir(model_dir):
         os.makedirs(model_dir)
-    model_path = os.path.join(model_dir, 'model_%s.h5' % timestr)                # 저장할 파일명 지정
+    model_path = os.path.join(model_dir, 'model_%s.h5' % timestr)               # 저장할 파일명 지정
     policy_learner.policy_network.save_model(model_path)                        # 정책 신경망 모델 저장

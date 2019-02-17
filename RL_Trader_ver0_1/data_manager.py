@@ -87,4 +87,5 @@ def build_training_data(prep_data):
             (training_data['volume'] - training_data['volume_ma%d' % window]) / training_data['volume_ma%d' % window]
 
     return training_data
-    # 이렇게 반환되는 trading_data는 주어진 각 거래일 동안(row)에 대해 15개의 feature(colums)를 가진 모양이다. (여기에 에이전트의 상태(2)가 추가되어 최종적으로 특징이 17개가 된다.)
+    # 이렇게 반환되는 trading_data는 {차트 데이터 열들(chart_data(DOHLCV)) + 전처리에서 추가된 열들(close_ma(5~120) & volume_ma(5~120)) + 학습 데이터의 열들(ratio data)} 로 이루어진 데이터이다.
+    # 이처럼 여러 feature를 가진 training_data는 main 함수에서 필요한 부분들(DOHLCV의 차트 데이터와 15개의 feature를 가진 학습 데이터)만 떼어내서 강화학습에 사용한다.
