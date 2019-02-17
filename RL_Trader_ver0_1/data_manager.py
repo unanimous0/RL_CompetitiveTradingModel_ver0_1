@@ -25,11 +25,11 @@ def preprocess(chart_data):
     prep_data = chart_data
     windows = [5, 10, 20, 60, 120]
     for window in windows:
-        prep_data['close_ma{}'.format(window)] = prep_data['close'].rolling(window).mean()
-        prep_data['volume_ma{}'.format(window)] = prep_data['volume'].rolling(window).mean()
-        # # <<보완>> 추가된 기관 순매수('inst')와 외국인 순매수('frgn') 데이터 전처리 과정 추가
-       # prep_data['inst_ma{}'.format(window)] = prep_data['inst'].rolling(window).mean()
-        # prep_data['frgn_ma{}'.format(window)] = prep_data['frgn'].rolling(window).mean()
+        prep_data['close_ma{}'.format(window)] = prep_data['close'].rolling(window).mean()      # 새로운 열(종가의 이동 평균) 추가
+        prep_data['volume_ma{}'.format(window)] = prep_data['volume'].rolling(window).mean()    # 새로운 열(거래량의 이동 평균) 추가
+        # TODO <<보완>> 추가된 기관 순매수('inst')와 외국인 순매수('frgn') 데이터 전처리 과정 추가
+        #   prep_data['inst_ma{}'.format(window)] = prep_data['inst'].rolling(window).mean()
+        #   prep_data['frgn_ma{}'.format(window)] = prep_data['frgn'].rolling(window).mean()
     return prep_data
 
 
@@ -40,9 +40,11 @@ def build_training_data(prep_data):
     # 시가/전일종가 비율
     # 시가와 전일 종가의 비율을 구하는 것이므로 open은 open[1:]이고, lastclose는 close[:-1]이 된다.
     # (open이 1부터 시작하는 이유는 첫 번째 행은 전일 값이 없거나 그 값이 있더라도 알 수 없기 때문에 전일 대비 종가 비율을 구하지 못한다.)
+    # (lasoclose가 -1 전까지가 마지막인 이유는 위의 이유와 유사하다.)
     training_data['open_lastclose_ratio'] = np.zeros(len(training_data))
     training_data['open_lastclose_ratio'].iloc[1:] = \
         (training_data['open'][1:].values - training_data['close'][:-1].values) / training_data['close'][:-1].values
+        # ex) training_data['open'][1:].values의 결과로 ndarray 형식의 배열이 반환된다. --> 따라서 위의 식은 ndarray간에 element-wise로 계산이 되는 것이므로 문제 없다.
 
     # 고가/종가 비율
     training_data['high_close_ratio'] = \
@@ -85,3 +87,4 @@ def build_training_data(prep_data):
             (training_data['volume'] - training_data['volume_ma%d' % window]) / training_data['volume_ma%d' % window]
 
     return training_data
+    # 이렇게 반환되는 trading_data는 주어진 각 거래일 동안(row)에 대해 15개의 feature(colums)를 가진 모양이다. (여기에 에이전트의 상태(2)가 추가되어 최종적으로 특징이 17개가 된다.)
