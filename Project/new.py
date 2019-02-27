@@ -10,4 +10,4 @@ from pandas import DataFrame
 
 con = sqlite3.connect("c:/Users/Eugene/pyquery.db")
 cursor = con.cursor()
-sql
+sqldhfjsdjfafjdsjfjkjfds
