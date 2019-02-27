@@ -66,4 +66,3 @@ class Environment:
         self.chart_data = chart_data
 
 
-ddd
