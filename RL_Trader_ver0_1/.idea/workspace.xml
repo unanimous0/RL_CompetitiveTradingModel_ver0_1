@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb05cb3a-cbc2-421e-92a5-7164491ba744" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" beforeDir="false" afterPath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" afterDir="false" />
-    </list>
+    <list default="true" id="eb05cb3a-cbc2-421e-92a5-7164491ba744" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/environment.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="690">
+                <state relative-caret-position="580">
                   <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
                 </state>
               </provider>
@@ -84,7 +82,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/policy_network.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
+                <state relative-caret-position="238">
                   <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
                 </state>
               </provider>
@@ -93,7 +91,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/agent.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1635">
+                <state relative-caret-position="15">
                   <caret line="109" column="80" selection-start-line="109" selection-start-column="80" selection-end-line="109" selection-end-column="80" />
                 </state>
               </provider>
@@ -111,8 +109,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/visualizer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="885">
-                  <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+                <state relative-caret-position="524">
+                  <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -120,13 +118,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
+                <state relative-caret-position="15">
                   <caret line="4" selection-start-line="4" selection-end-line="4" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
@@ -135,11 +133,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/data_manager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1335">
-                  <caret line="90" column="116" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="116" />
+                <state relative-caret-position="300">
+                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
                 </state>
               </provider>
             </entry>
@@ -583,6 +581,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989796" weight="0.09704641" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -597,7 +596,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.31428573" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -705,21 +704,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/environment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="580">
           <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/policy_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="238">
           <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
+        <state relative-caret-position="15">
           <caret line="109" column="80" selection-start-line="109" selection-start-column="80" selection-end-line="109" selection-end-column="80" />
         </state>
       </provider>
@@ -733,22 +732,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        <state relative-caret-position="524">
+          <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="15">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="90" column="116" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="116" />
         </state>
       </provider>
     </entry>
@@ -756,6 +748,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
