@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb05cb3a-cbc2-421e-92a5-7164491ba744" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/policy_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/policy_network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" beforeDir="false" afterPath="$PROJECT_DIR$/프로젝트_ver0_1_수정 및 확인 사항.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,8 +84,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/policy_network.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="12" column="76" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
+                <state relative-caret-position="-1244">
+                  <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
                   <folding>
                     <element signature="e#1709#1727#0" expanded="true" />
                   </folding>
@@ -141,11 +138,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="841">
-                  <caret line="80" column="30" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="30" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
                   <folding>
                     <element signature="e#59#68#0" expanded="true" />
                   </folding>
@@ -153,11 +150,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/data_manager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="529">
-                  <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+                <state relative-caret-position="505">
+                  <caret line="90" column="116" lean-forward="true" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="116" />
                 </state>
               </provider>
             </entry>
@@ -175,8 +172,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>observation</find>
-      <find>set_chart</find>
       <find>set_ba</find>
       <find>action_list</find>
       <find>decide_action</find>
@@ -205,6 +200,8 @@
       <find>max_portfolio</find>
       <find>build_tra</find>
       <find>연속으로</find>
+      <find>delayed_reward_threshold</find>
+      <find>discount_factor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -222,22 +219,20 @@
         <option value="$PROJECT_DIR$/test/visualizer2.py" />
         <option value="$PROJECT_DIR$/test/policy_learner2.py" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/agent.py" />
         <option value="$PROJECT_DIR$/environment.py" />
         <option value="$PROJECT_DIR$/visualizer.py" />
         <option value="$PROJECT_DIR$/test/environment_2.py" />
         <option value="$PROJECT_DIR$/policy_learner.py" />
-        <option value="$PROJECT_DIR$/policy_network.py" />
         <option value="$PROJECT_DIR$/data_manager.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/policy_network.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="4" />
-    <option name="y" value="23" />
-    <option name="width" value="1676" />
-    <option name="height" value="1027" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -575,7 +570,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550360344968</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Committed">
+      <created>1550380269523</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1550380269523</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Committed">
+      <created>1550383064322</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1550383064322</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -589,7 +598,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989796" weight="0.09704641" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -747,16 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="30" />
-          <folding>
-            <element signature="e#59#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/environment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -764,20 +762,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="90" column="116" lean-forward="true" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/policy_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="76" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
+        <state relative-caret-position="-1244">
+          <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
           <folding>
             <element signature="e#1709#1727#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_manager.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        <state relative-caret-position="150">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="e#59#68#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
