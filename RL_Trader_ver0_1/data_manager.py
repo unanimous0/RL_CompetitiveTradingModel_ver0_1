@@ -18,7 +18,7 @@ def load_chart_data(fpath="/Users/unanimous0/PycharmProjects/Saturn/data/chart_d
     return chart_data
     # 과거의 주가와 현재의 주가가 크게 차이가 나기 때문에 이 값을 그대로 학습에 사용하기는 어렵다.
     # 따라서 현재 종가와 전일 종가의 비율, 이동평균 종가의 비율, 현재 거래량과 전일 거래량의 비율, 이동평균 거래량의 비율을 학습에서 사용한다.
-
+d
 
 # 종가와 거래량의 이동 평균 구하기
 def preprocess(chart_data):
