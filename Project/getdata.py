@@ -11,8 +11,9 @@ import sqlite3
 from datetime import datetime
 import Project.codereader as cr
 
-# 디비 경로부분은 컴퓨터 상황에 맞게 바꿔주세요! c:부터 Project부분까지
-con = sqlite3.connect("c:/Users/Eugene/PycharmProjects/untitled/Project/kospi.db")
+cnt = 0
+# 디비 경로부분은 컴퓨터 상황에 맞게 바꿔주세요! Project폴더의 kosdaq.db의 경로로
+con = sqlite3.connect("c:/Users/Eugene/PycharmProjects/untitled/Project/kosdaq.db")
 cursor = con.cursor()
 
 def create_table(name):
@@ -111,7 +112,7 @@ def Webreader(code):
 
         table = pd.DataFrame(results, columns=['date', 'open', 'high', 'low', 'close', 'volume'])
         table.to_sql(code, con, if_exists='append', index=False)
-        print(table)
+
 
 
 
@@ -124,9 +125,11 @@ if __name__ == "__main__":
     kosdaq_codes = cr.read_kosdaq_code()
     kospi_codes = cr.read_kospi_code()
 
-    for code in kospi_codes:
+    for code in kosdaq_codes:
         table = Webreader(code)
         if table==0:
+            cnt = cnt+1
+            print(cnt)
             continue
 
 
