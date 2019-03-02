@@ -11,7 +11,7 @@ from pandas import DataFrame
 MARKET_KOSPI = 0
 MARKET_KOSDAQ = 10
 
-stock_column_idx_lookup = {0:'date', 1:'close', 2:'open', 3:'high', 4:'low'}
+stock_column_idx_lookup = {0:'date', 1:'open', 2:'close', 3:'high', 4:'low'}
 form_class = uic.loadUiType("pyquery.ui")[0]
 
 
@@ -23,7 +23,7 @@ class Mywindow(QMainWindow, form_class):
         # ui 셋업
         self.setupUi(self)
         #db 연결
-        self.con = sqlite3.connect("c:/Users/Eugene/pyquery.db")
+        self.con = sqlite3.connect("c:/Users/Eugene/PycharmProjects/RL_CompetitiveTradingModel_ver0_1/rl_trader.db")
         self.cursor = self.con.cursor()
         '''
         # 키움 연결
@@ -45,13 +45,13 @@ class Mywindow(QMainWindow, form_class):
     # 종료날짜 가져오기 : 나중에 예외 처리해주기(테이블에 데이터가 없을 경우에 대비해서)
     def get_lastdate(self):
         lastdate = []
-        con2 = sqlite3.connect("c:/Users/Eugene/pyquery.db")
+        con2 = sqlite3.connect("c:/Users/Eugene/PycharmProjects/RL_CompetitiveTradingModel_ver0_1/rl_trader.db")
         cursor2 = con2.cursor()
-        cursor2.execute("SELECT year FROM dataupdate order by year desc, month desc, day desc LIMIT 1")
+        cursor2.execute("SELECT year FROM update order by year desc, month desc, day desc LIMIT 1")
         lastdate.append(cursor2.fetchone())
-        cursor2.execute("SELECT month FROM dataupdate order by year desc, month desc, day desc LIMIT 1")
+        cursor2.execute("SELECT month FROM update order by year desc, month desc, day desc LIMIT 1")
         lastdate.append(cursor2.fetchone())
-        cursor2.execute("SELECT day FROM dataupdate order by year desc, month desc, day desc LIMIT 1")
+        cursor2.execute("SELECT day FROM update order by year desc, month desc, day desc LIMIT 1")
         lastdate.append(cursor2.fetchone())
         # 가져온 년,월,일을 리스ㅡ에 저장하여 반환
         n_lastdate = []
@@ -95,10 +95,10 @@ class Mywindow(QMainWindow, form_class):
         webreader = Webreader2()
         stock_data = webreader.crawler(new_ldate[0], new_ldate[1], new_ldate[2], cdate[0], cdate[1], cdate[2])
         # 데이터 저장 : 저장할 때 년도 포맷 바꿔줘야 함(네자리로)
-        stock_data.to_sql('stock', self.con, if_exists='append', index=False)
+        stock_data.to_sql('SamsungElectronics', self.con, if_exists='append', index=False)
         # 현재날짜를 디비에 저장(마지막 갱신일로 저장하는 것임)
         cursor3 = self.con.cursor()
-        sql = "insert into dataupdate (year, month, day) values (?, ?, ?)"
+        sql = "insert into update (year, month, day) values (?, ?, ?)"
         cursor3.execute(sql, cdate)
         self.con.commit()
         cursor3.close()
@@ -137,7 +137,7 @@ class Mywindow(QMainWindow, form_class):
         print("flag1234567")
         cursor4 = self.con.cursor()
         print("flagisdijfsjdfjsa;fja")
-        sql = "SELECT * FROM stock WHERE DATE(Date) BETWEEN DATE(?) AND DATE(?)"
+        sql = "SELECT * FROM SamsungElectronics WHERE DATE(Date) BETWEEN DATE(?) AND DATE(?)"
         print("flag4")
         cursor4.execute(sql, (sdate, edate))
         print("flag5")

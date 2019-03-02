@@ -10,9 +10,13 @@ import pandas as pd
 import sqlite3
 from datetime import datetime
 
+kospi = []
+kosdaq = []
+stock_data = pd.read_csv('kospi_stock_code.csv')
+kospi = stock_data[['종목코드', '기업명']]
 # selenium : 날짜 선택창 조작 위한 라이브러리
 driver = webdriver.Chrome("/Users/Eugene/Downloads/chromedriver")
-driver.get('http://vip.mk.co.kr/newSt/price/daily.php?stCode=005930')
+driver.get('http://vip.mk.co.kr/newSt/price/daily.php?stCode='+code)
 
 # 시작 년도 설정 : 나중에 마지막 갱신일을 기준으로 다시 설정해야함
 select_y1 = Select(driver.find_element_by_name('y1'))
@@ -26,13 +30,13 @@ select_d1.select_by_value('01')
 
 # 종료 년도 설정 : 나중에 현재 날짜를 받아서 하는 걸로 변경해야 함
 select_y2 = Select(driver.find_element_by_name('y2'))
-select_y2.select_by_value('2000')
+select_y2.select_by_value('2019')
 
 select_m2 = Select(driver.find_element_by_name('m2'))
 select_m2.select_by_value('02')
 
 select_d2 = Select(driver.find_element_by_name('d2'))
-select_d2.select_by_value('01')
+select_d2.select_by_value('28')
 
 # 검색 버튼
 btn = driver.find_element_by_xpath("//input[@src='http://img.mk.co.kr/stock/2009/bt_search.gif']")
@@ -47,7 +51,7 @@ time.sleep(5)
 html = driver.page_source # beautifulsoup한테 검색된 페이지 알려주기
 soup = BeautifulSoup(html, 'html5lib')
 
-dates = soup.findAll('td', attrs={'class':'center'})
+
 table = soup.find('table', attrs={'class':'table_3'})
 trs = table.findAll('tr') #테이블의 모든 row들 저장
 
@@ -73,15 +77,15 @@ for row in trs:
     open = int(td[4].text.replace(",", ""))
     high = int(td[5].text.replace(",", ""))
     low = int(td[6].text.replace(",", ""))
+    value = int(td[7].text.replace(",", ""))
     
-    results.append((date, close, open, high, low))
+    results.append((date, open, close, high, low, value))
 
-table = pd.DataFrame(results, columns=['date', 'close', 'open', 'high', 'low'])
+table = pd.DataFrame(results, columns=['date', 'open', 'close', 'high', 'low', 'value'])
 
 #print(table)
 # db에 저장
-'''
+
 con = sqlite3.connect("c:/Users/Eugene/pyquery.db")
 cursor = con.cursor()
 table.to_sql('stock', con, if_exists='append', index=False)
-'''

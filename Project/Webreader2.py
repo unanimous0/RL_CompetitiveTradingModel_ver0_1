@@ -70,10 +70,11 @@ class Webreader2:
             open = int(td[4].text.replace(",", ""))
             high = int(td[5].text.replace(",", ""))
             low = int(td[6].text.replace(",", ""))
+            value = int(td[7].text.replace(",", ""))
 
-            results.append((date, close, open, high, low))
+            results.append((date, open, high, low, close, value))
 
-            table = pd.DataFrame(results, columns=['date', 'close', 'open', 'high', 'low'])
+            table = pd.DataFrame(results, columns=['date', 'open', 'high', 'low', 'close', 'value'])
         print("완료")
         return table
 '''
