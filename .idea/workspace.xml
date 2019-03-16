@@ -1,9 +1,1021 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2e7cd5c-ed60-42a8-a111-bcd4a4016451" name="Default Changelist" comment="Updating">
+    <list default="true" id="c2e7cd5c-ed60-42a8-a111-bcd4a4016451" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/data_reader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/temp_kospi.db" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/temp_kospi.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0036.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0038.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0042.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0044.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0045.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0046.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0048.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0051.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0052.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0053.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0054.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0055.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0056.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0057.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0058.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0059.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0060.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0061.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0062.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0063.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0064.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0065.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0067.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0068.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0070.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0071.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0074.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0075.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0077.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0079.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0080.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0081.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0082.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0083.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0084.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0085.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0086.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0088.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0089.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0090.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0091.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0093.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0094.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0095.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0096.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0097.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0098.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0099.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0102.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0137.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0151.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0153.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0154.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0155.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0156.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0157.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0158.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0159.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0160.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0161.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0162.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0163.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0165.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0166.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0169.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0170.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0171.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0172.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0173.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0174.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0175.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0176.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0177.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0178.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0179.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0181.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0182.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0183.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0184.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0185.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0186.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0187.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0188.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0189.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0190.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0191.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0193.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0194.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0195.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0196.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0197.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0198.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0199.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0201.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0202.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0203.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0204.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0206.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0207.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0208.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0209.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0210.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0211.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0212.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0213.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0214.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0215.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0216.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0217.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0218.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0219.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0220.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0221.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0222.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0223.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0224.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0225.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0226.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0227.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0228.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0229.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0230.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0231.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0232.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0233.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0235.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0236.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0237.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0238.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0241.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0242.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0243.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0244.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0245.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0246.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0247.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0248.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0249.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0251.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0252.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0253.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0254.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0255.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0257.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0258.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0259.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0260.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0261.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0262.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0263.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0264.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0265.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0266.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0267.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0268.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0269.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0270.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0271.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0272.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0273.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0274.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0275.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0276.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0277.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0278.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0279.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0280.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0281.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0282.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0283.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0284.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0285.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0286.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0287.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0288.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0289.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0290.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0291.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0292.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0293.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0294.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0295.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0296.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0297.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0298.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0299.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0301.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0302.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0303.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0304.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0305.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0306.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0307.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0308.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0309.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0310.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0311.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0312.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0313.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0314.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0315.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0316.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0317.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0318.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0319.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0320.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0321.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0322.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0323.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0324.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0325.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0326.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0327.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0328.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0329.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0330.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0331.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0332.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0333.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0334.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0335.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0336.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0337.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0338.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0339.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0340.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0341.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0342.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0343.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0344.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0345.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0346.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0347.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0348.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0349.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0350.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0351.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0352.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0353.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0354.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0355.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0356.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0358.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0359.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0360.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0361.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0362.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0363.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0364.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0365.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0366.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0367.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0368.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0369.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0370.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0371.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0372.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0373.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0374.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0375.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0376.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0377.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0378.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0379.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0380.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0381.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0382.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0383.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0384.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0385.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0386.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0387.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0388.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0389.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0391.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0392.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0393.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0394.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0395.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0396.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0397.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0398.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0399.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0401.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0402.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0403.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0404.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0405.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0406.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0407.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0408.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0409.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0410.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0411.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0412.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0413.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0414.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0415.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0416.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0417.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0418.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0419.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0420.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0421.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0422.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0423.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0424.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0425.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0426.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0427.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0428.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0429.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0430.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0431.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0432.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0433.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0434.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0435.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0436.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0437.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0438.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0439.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0440.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0441.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0442.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0443.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0444.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0445.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0446.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0447.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0448.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0449.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0450.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0451.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0452.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0453.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0454.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0455.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0456.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0457.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0458.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0459.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0460.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0461.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0462.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0463.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0464.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0465.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0466.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0467.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0468.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0469.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0470.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0471.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0472.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0473.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0474.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0475.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0476.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0477.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0478.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0479.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0480.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0481.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0482.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0483.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0484.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0485.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0486.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0487.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0488.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0489.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0490.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0491.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0492.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0493.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0494.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0495.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0496.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0497.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0498.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0499.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0501.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0502.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0503.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0504.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0505.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0506.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0507.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0508.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0509.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0510.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0511.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0513.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0514.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0515.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0516.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0517.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0518.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0519.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0520.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0521.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0522.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0523.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0524.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0525.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0526.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0527.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0528.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0529.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0530.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0531.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0532.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0533.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0534.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0535.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0536.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0537.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0538.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0539.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0540.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0541.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0542.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0543.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0544.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0545.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0546.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0547.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0548.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0549.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0550.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0551.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0552.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0553.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0554.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0555.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0556.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0557.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0558.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0559.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0560.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0561.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0562.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0563.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0564.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0565.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0566.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0567.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0568.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0569.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0570.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0571.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0572.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0573.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0574.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0575.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0576.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0577.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0578.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0579.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0580.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0581.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0582.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0583.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0584.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0585.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0586.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0587.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0588.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0589.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0590.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0591.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0592.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0593.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0594.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0595.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0596.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0597.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0598.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0599.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0602.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0603.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0604.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0605.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0606.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0607.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0608.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0609.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0610.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0611.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0612.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0613.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0614.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0615.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0616.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0617.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0618.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0619.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0620.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0621.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0622.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0623.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0624.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0625.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0626.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0627.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0628.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0629.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0630.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0631.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0632.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0633.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0634.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0635.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0636.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0637.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0638.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0639.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0640.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0641.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0642.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0643.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0644.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0645.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0646.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0647.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0648.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0649.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0650.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0651.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0652.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0653.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0654.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0655.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0656.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0657.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0658.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0659.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0660.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0661.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0662.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0663.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0664.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0665.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0666.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0667.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0668.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0669.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0670.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0671.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0672.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0673.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0674.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0675.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0676.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0677.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0678.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0679.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0680.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0681.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0682.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0683.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0684.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0685.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0686.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0687.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0688.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0689.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0690.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0692.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0693.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0694.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0695.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0696.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0697.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0698.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0699.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0700.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0701.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0702.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0703.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0704.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0705.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0706.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0707.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0708.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0709.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0710.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0711.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0712.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0713.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0714.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0715.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0716.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0717.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0718.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0719.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0720.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0721.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0722.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0723.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0724.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0725.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0729.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0732.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0733.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0734.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0735.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0736.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0737.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0738.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0739.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0740.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0741.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0742.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0743.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0744.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0745.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0746.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0748.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0749.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0750.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0751.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0752.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0753.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0754.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0755.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0756.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0757.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0758.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0759.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0761.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0762.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0763.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0764.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0765.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0766.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0767.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0768.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0769.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0770.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0771.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0772.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0773.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0774.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0775.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0776.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0777.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0778.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0779.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0780.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0781.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0782.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0783.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0784.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0785.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0786.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0787.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0788.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0789.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0790.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0791.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0792.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0793.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0794.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0795.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0796.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0797.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0798.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0799.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0800.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0801.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0802.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0803.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0804.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0805.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0806.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0807.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0808.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0809.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0810.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0811.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0812.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0813.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0814.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0815.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0816.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0817.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0818.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0819.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0820.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0821.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0822.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0823.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0824.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0825.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0826.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0827.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0828.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0829.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0830.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0831.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0832.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0833.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0834.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0835.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0836.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0837.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0838.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0839.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0840.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0841.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0842.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0843.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0844.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0845.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0846.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0847.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0848.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0849.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0850.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0851.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0853.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0854.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0855.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0856.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0857.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0858.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0859.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0860.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0861.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0862.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0863.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0864.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0865.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0866.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0867.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0868.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0869.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0870.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0871.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0872.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0873.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0874.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0875.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0876.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0877.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0878.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0879.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0880.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0881.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0882.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0883.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0884.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0885.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0886.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0887.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0888.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0889.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0890.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0891.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0892.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0893.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0894.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0895.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0896.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0897.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0898.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0899.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0900.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0901.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0902.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0903.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0904.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0905.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0906.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0907.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0908.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0909.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0910.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0911.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0912.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0913.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0914.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0915.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0916.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0917.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0918.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0919.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0920.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0921.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0922.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0923.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0924.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0925.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0926.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0927.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0928.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0929.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0930.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0931.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0932.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0933.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0934.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0935.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0936.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0937.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0938.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0939.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0940.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0941.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0942.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0943.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0944.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0945.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0946.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0947.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0948.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0949.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0950.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0951.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0952.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0953.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0954.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0955.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0956.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0957.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0958.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0959.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0960.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0961.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0962.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0963.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0964.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0965.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0966.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0967.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0968.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0969.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0970.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0971.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0972.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0973.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0974.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0975.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0976.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0977.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0978.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0979.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0980.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0981.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0982.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0983.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0984.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0985.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0986.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0987.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0988.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0989.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0990.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0991.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0992.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0993.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0994.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0995.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0996.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0997.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0998.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_0999.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/epoch_summary/005930/epoch_summary_20180920144309/epoch_summary_20180920144309_1000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920142410.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920142602.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920142705.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920142728.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920143101.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920143318.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920143418.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920143647.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920144226.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/logs/005930/005930_20180920144309.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/temp_kospi.db" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +1027,54 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+              <folding>
+                <element signature="e#84#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/data_manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="3" />
+              <folding>
+                <element signature="e#48#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/data_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+              <folding>
+                <element signature="e#48#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4755">
+              <caret line="317" column="27" selection-start-line="317" selection-start-column="27" selection-end-line="317" selection-end-column="27" />
+              <folding>
+                <element signature="e#145#154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -35,59 +1090,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/getdata.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
-              <folding>
-                <element signature="e#25#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/codereader.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/new.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="12" column="95" selection-start-line="12" selection-start-column="95" selection-end-line="12" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/pyquery.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-524">
-              <caret line="125" column="4" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
-              <folding>
-                <element signature="e#25#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -112,6 +1116,8 @@
       <find>Webdriver</find>
       <find>Webreader</find>
       <find>존재하지</find>
+      <find>stocks</find>
+      <find>close</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,13 +1136,15 @@
         <option value="$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py" />
         <option value="$PROJECT_DIR$/RL_Trader_ver0_1/test/test_field.py" />
         <option value="$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py" />
+        <option value="$PROJECT_DIR$/RL_Trader_ver0_1/main.py" />
+        <option value="$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py" />
+        <option value="$PROJECT_DIR$/RL_Trader_ver0_1/data_reader.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="774" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="840" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
@@ -155,18 +1163,7 @@
             <path>
               <item name="RL_CompetitiveTradingModel_ver0_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="RL_CompetitiveTradingModel_ver0_1" type="462c0819:PsiDirectoryNode" />
-              <item name="KOSDAQ_DB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RL_CompetitiveTradingModel_ver0_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RL_CompetitiveTradingModel_ver0_1" type="462c0819:PsiDirectoryNode" />
               <item name="RL_Trader_ver0_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RL_CompetitiveTradingModel_ver0_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RL_CompetitiveTradingModel_ver0_1" type="462c0819:PsiDirectoryNode" />
-              <item name="RL_Trader_ver0_1" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,7 +1187,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_field (1)">
+  <component name="RunManager" selected="Python.data_reader">
+    <configuration name="data_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RL_CompetitiveTradingModel_ver0_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL_Trader_ver0_1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL_Trader_ver0_1/data_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="getdata" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RL_CompetitiveTradingModel_ver0_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -256,6 +1274,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.data_reader" />
         <item itemvalue="Python.test_field (1)" />
         <item itemvalue="Python.test_field" />
         <item itemvalue="Python.getdata" />
@@ -273,6 +1292,21 @@
       <option name="presentableId" value="Default" />
       <updated>1551645349496</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updating">
+      <created>1552486056831</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552486056831</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updating">
+      <created>1552758386357</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552758386357</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -285,10 +1319,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="840" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24171187" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24171187" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,7 +1361,8 @@
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/debug.log">
@@ -357,53 +1392,10 @@
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/agent.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/visualizer.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test/test_field.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/getdata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -433,8 +1425,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="300">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KOSDAQ_DB/getdata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/data_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" />
+          <folding>
+            <element signature="e#48#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+          <folding>
+            <element signature="e#84#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4755">
+          <caret line="317" column="27" selection-start-line="317" selection-start-column="27" selection-end-line="317" selection-end-column="27" />
+          <folding>
+            <element signature="e#145#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/visualizer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/data_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding>
+            <element signature="e#48#82#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

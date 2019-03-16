@@ -313,9 +313,9 @@ class PolicyLearner:
             #  에포크 관련 정보 로그 기록
             if pos_learning_cnt + neg_learning_cnt > 0:
                 loss /= pos_learning_cnt + neg_learning_cnt
-            logger.info("[Epoch %s/%s]\tEpsilon:%.4f\t#Expl.:%d/%d\t"       # #Expl. 은 "무작위 투자를 수행한 횟수 / 수행한 에포크 수(반복 카운팅 횟수)" 이다.
-                        "#Buy:%d\t#Sell:%d\t#Hold:%d\t"
-                        "#Stocks:%d\tPV:%s\t"
+            logger.info("[Epoch %s/%s]\tEpsilon:%.4f\tExpl._Ratio :%d/%d\t"       # #Expl. 은 "무작위 투자를 수행한 횟수 / 수행한 에포크 수(반복 카운팅 횟수)" 이다.
+                        "#_Buy:%d\t#_Sell:%d\t#_Hold:%d\t"
+                        "#_Stocks:%d\tPV:%s\t"
                         "POS:%s\tNEG:%s\tLoss:%10.6f" % (
                             epoch_str, num_epoches, epsilon, exploration_cnt, itr_cnt,
                             self.agent.num_buy, self.agent.num_sell, self.agent.num_hold,
