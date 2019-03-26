@@ -166,9 +166,9 @@
     <widget class="QCheckBox" name="check_open">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>80</x>
        <y>150</y>
-       <width>81</width>
+       <width>51</width>
        <height>16</height>
       </rect>
      </property>
@@ -181,7 +181,7 @@
       <rect>
        <x>20</x>
        <y>150</y>
-       <width>81</width>
+       <width>51</width>
        <height>16</height>
       </rect>
      </property>
@@ -192,9 +192,9 @@
     <widget class="QCheckBox" name="check_high">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>140</x>
        <y>150</y>
-       <width>81</width>
+       <width>51</width>
        <height>16</height>
       </rect>
      </property>
@@ -205,9 +205,9 @@
     <widget class="QCheckBox" name="check_low">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>200</x>
        <y>150</y>
-       <width>81</width>
+       <width>51</width>
        <height>16</height>
       </rect>
      </property>
@@ -215,7 +215,7 @@
       <string>저가</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="stcok_codeEdit">
+    <widget class="QLineEdit" name="stock_codeEdit">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -238,7 +238,7 @@
     <widget class="QPushButton" name="stock_btn">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>250</x>
        <y>160</y>
        <width>75</width>
        <height>23</height>

@@ -132,6 +132,7 @@ class Mywindow(QMainWindow, form_class):
         start_date =
 
     '''
+
     # 추가할 것 : 사용자가 선택한 데이터 종류에 따라 데이터 보여주는 기능
     def setStockTable(self, sdate, edate, col):
         print("flag1234567")
