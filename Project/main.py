@@ -1,3 +1,4 @@
+import os
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
@@ -6,6 +7,8 @@ import sqlite3
 from datetime import datetime, timedelta
 import pandas as pd
 from pandas import DataFrame
+
+os.chdir("/Users/unanimous0/RL_CompetitiveTradingModel_ver0_1/Project")
 
 MARKET_KOSPI = 0
 MARKET_KOSDAQ = 10
@@ -20,7 +23,7 @@ class Mywindow(QMainWindow, form_class):
         # ui 셋업
         self.setupUi(self)
         # db 연결
-        self.con = sqlite3.connect("c:/Users/Eugene/PycharmProjects/RL_CompetitiveTradingModel_ver0_1/Project/kospi.db")
+        self.con = sqlite3.connect("kospi.db")
         self.cursor = self.con.cursor()
 
 
@@ -41,7 +44,7 @@ class Mywindow(QMainWindow, form_class):
     # 종료날짜 가져오기 : 나중에 예외 처리해주기(테이블에 데이터가 없을 경우에 대비해서)
     def get_lastdate(self):
         lastdate = []
-        con2 = sqlite3.connect("c:/Users/Eugene/PycharmProjects/RL_CompetitiveTradingModel_ver0_1/Project/kospi.db")
+        con2 = sqlite3.connect("kospi.db")
         cursor2 = con2.cursor()
         cursor2.execute("SELECT year FROM update order by year desc, month desc, day desc LIMIT 1")
         lastdate.append(cursor2.fetchone())

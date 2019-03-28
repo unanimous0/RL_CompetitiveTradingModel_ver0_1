@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from pandas import DataFrame
 
+
 MARKET_KOSPI = 0
 MARKET_KOSDAQ = 10
 

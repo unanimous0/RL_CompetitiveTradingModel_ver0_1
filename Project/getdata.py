@@ -11,9 +11,11 @@ import sqlite3
 from datetime import datetime
 import Project.codereader as cr
 
+os.chdir("/Users/unanimous0/RL_CompetitiveTradingModel_ver0_1/Project")
+
 cnt = 0
 # 디비 경로부분은 컴퓨터 상황에 맞게 바꿔주세요! Project폴더의 kosdaq.db의 경로로
-con = sqlite3.connect("c:/Users/Eugene/PycharmProjects/untitled/Project/kosdaq.db")
+con = sqlite3.connect("kosdaq.db")
 cursor = con.cursor()
 
 def create_table(name):

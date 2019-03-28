@@ -5,7 +5,7 @@
 import pandas as pd
 import numpy as np
 
-def load_chart_data(fpath="/Users/unanimous0/PycharmProjects/Saturn/data/chart_data/005930.csv"):
+def load_chart_data(fpath="/Users/unanimous0/Desktop/000660_train.csv"):
     chart_data = pd.read_csv(fpath, thousands=',', header=None)
     chart_data.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
 
