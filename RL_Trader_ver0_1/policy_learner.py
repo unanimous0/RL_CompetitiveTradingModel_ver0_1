@@ -10,7 +10,6 @@ import locale       # 통화(currency) 문자열 포맷을 위해 사용
 import logging      # 학습 과정 중 정보를 기록하기 위해 사용
 import settings     # 투자 설정, 로깅 설정 등을 위한 모듈로서 여러 상수 값들을 포함
 import numpy as np
-# import time, datetime
 from environment import Environment
 from agent import Agent
 from policy_network import PolicyNetwork
@@ -119,27 +118,30 @@ class PolicyLearner:
         learning:        학습 유무를 정하는 boolean 값 (학습을 마치면 학습된 정책 신경망 모델이 만들어지는데, 이렇게 학습을 해서 정책 신경망 모델을 만들고자 한다면 learning을 True로,
                          이미 학습된 모델을 가지고 투자 시뮬레이션만 하려 한다면 False로 준다.)
     """
-    def fit(self, num_epoches=1000, max_memory=60, balance=10000000, discount_factor=0, start_epsilon=0.5, learning=True):
-        logger.info("LR: {l_rate}, DF: {discount_factor}, "
-                    "TU: [{min_trading_unit}, {max_trading_unit}], "
-                    "DRT: {delayed_reward_threshold}".format(
+    def fit(
+        self, num_epoches=1000, max_memory=60, balance=10000000,
+        discount_factor=0, start_epsilon=.5, learning=True):
+        logger.info("LearningRate: {l_rate}, DiscountFactor: {discount_factor}, "
+                    "TradingUnit: [{min_trading_unit}, {max_trading_unit}], "
+                    "DelayedRewardThreshold: {delayed_reward_threshold}".format(
             l_rate=self.policy_network.l_rate,
-            discount_factor = discount_factor,
-            min_trading_unit = self.agent.min_trading_unit,
-            max_trading_unit = self.agent.max_trading_unit,
-            delayed_reward_threshold = self.agent.delayed_reward_threshold
+            discount_factor=discount_factor,
+            min_trading_unit=self.agent.min_trading_unit,
+            max_trading_unit=self.agent.max_trading_unit,
+            delayed_reward_threshold=self.agent.delayed_reward_threshold
         ))
-
 
         # 가시화 준비
         # 차트 데이터는 변하지 않으므로 미리 (한 번만) 가시화
         self.visualizer.prepare(self.environment.chart_data)
 
         # 가시화 결과를 저장할 폴더 준비
-        epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (     # settings.BASE_DIR: 프로젝트 관련 파일들이 포함된 기본/루트 폴더 경로를 말한다.
-            self.stock_code, settings.timestr))     # settings.timestr: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
-        # epoch_summary_dir = os.path.join(settings.BASE_DIR, 'epoch_summary', '%s' % self.stock_code,
-        #                                  'epoch_summary_%s' % settings.timestr)       # --> 이렇게 코드를 작성하면 윈도우 계열, 리눅스 계열 OS에 상관없이 경로를 구성할 수 있다.
+        epoch_summary_dir = os.path.join(
+            settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (     # settings.BASE_DIR: 프로젝트 관련 파일들이 포함된 기본/루트 폴더 경로를 말한다.
+                self.stock_code, settings.timestr))     # settings.timestr: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
+        # epoch_summary_dir = os.path.join(     # --> 이렇게 코드를 작성하면 윈도우 계열, 리눅스 계열 OS에 상관없이 경로를 구성할 수 있다.
+        #   settings.BASE_DIR, 'epoch_summary', '%s' % self.stock_code,
+        #                      'epoch_summary_%s' % settings.timestr)       
         if not os.path.isdir(epoch_summary_dir):
             os.makedirs(epoch_summary_dir)
 
@@ -151,7 +153,7 @@ class PolicyLearner:
         epoch_win_cnt = 0           # epoch_win_cnt: 수익이 발생한 에포크 수를 저장하는 변수
 
         ### 학습 반복 for문 시작 ###
-        for epoch in range(num_epoches):
+        for epoch in range(num_epoches):    
             # 에포크 관련 정보 초기화
             loss = 0.               # 정책 신경망의 결과가 학습/실제 데이터와 얼만큼 차이가 있는지 저장
             # TODO itr_cnt와 win_cnt는 에포크 수를 (카운트해서) 저장하는게 아니라, 거래일 idx를 (카운트해서) 저장하는 변수가 맞는 듯 하다. (심지어 win_cnt는 이 주석 위에 epoch_win_cnt가 따로 있다.)
@@ -172,9 +174,9 @@ class PolicyLearner:
             memory_action = []          # 행동
             memory_reward = []          # 즉시 보상
             memory_prob = []            # 정책 신경망의 출력
-            memory_pv = []              # 포트폴리오 가치
+            memory_pv = []              # 포트폴리오 가치   
             memory_num_stocks = []      # 보유 주식 수
-
+            
             memory_exp_idx = []         # 탐험 위치
             memory_learning_idx = []    # 학습 위치     # TODO memory_learning_idx가 무엇인지 정확히 파악 후 visualizer.py의 151번 줄 TODO 해결할 것 (151번줄에서 얘(memory_learning_idx == visualizer.py의 learning) 때문에 막힘)
                                                       # TODO <해결> 지연 보상(으로 학습한) 위치와 지연 보상 값으로 이루어진 배열 --> [[지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], ...]
@@ -187,12 +189,12 @@ class PolicyLearner:
             self.policy_network.reset()
             self.reset()
 
-            # 가시화기 초기화
+            # 가시화 초기화
             self.visualizer.clear([0, len(self.chart_data)])
 
             # 학습을 진행할 수록 탐험 비율 감소
             if learning:
-                epsilon = start_epsilon * (1. - (float(epoch) / (num_epoches - 1)))     # epoch는 학습을 반복하며 계속 1씩 증가할 것 --> epsilon은 계속 감소한다.
+                epsilon = start_epsilon * (1. - float(epoch) / (num_epoches - 1))       # epoch는 학습을 반복하며 계속 1씩 증가할 것 --> epsilon은 계속 감소한다.
                 # e = 1. / ((episode / 10) + 1)                                         # epoch / num_epoches는 학습 진행률을 의미하며,
             else:                                                                       # num_epoches에서 1을 빼는 이유는 0부터 시작하기 때문이다. (표기는 1부터 시작하지만 실제 학습시에는 0부터 시작)
                 epsilon = 0
@@ -224,11 +226,11 @@ class PolicyLearner:
                 memory_reward.append(immediate_reward)
                 memory_pv.append(self.agent.portfolio_value)
                 memory_num_stocks.append(self.agent.num_stocks)
-
-                memory = [(memory_sample[i],            # memory: 위의 항목들(학습 데이터 sample 배열 / 에이전트의 action 배열 / 즉시 reward 배열)을 모아서 하나의 2차원 배열로 만든다.
-                           memory_action[i],
-                           memory_reward[i])
-                          for i in list(range(len(memory_action)))[-max_memory:]        # -max_memory의 수만큼을 반복시킨다. (max_memory가 60이므로 [-60:]은 60개이다.
+                memory = [(
+                    memory_sample[i],            # memory: 위의 항목들(학습 데이터 sample 배열 / 에이전트의 action 배열 / 즉시 reward 배열)을 모아서 하나의 2차원 배열로 만든다.
+                    memory_action[i],
+                    memory_reward[i])
+                    for i in list(range(len(memory_action)))[-max_memory:]        # -max_memory의 수만큼을 반복시킨다. (max_memory가 60이므로 [-60:]은 60개이다.
                 ]
                 """
                 위의 memory 부분 참고 (다시 볼 때 이해한 후 지울 것)
@@ -271,13 +273,12 @@ class PolicyLearner:
                 if delayed_reward == 0 and batch_size >= max_memory:    # 지연 보상이 있어야 그때까지의 데이터를 모아 한 번에 batch 사이즈로 학습을 할 수 있다. 그런데 지연 보상이 없다. 이러면 학습한 것도 없는 상황인데,
                     delayed_reward = immediate_reward                   # 메모리마저 최대 크기만큼 다 찼다면, 지연 보상을 즉시 보상으로 대체하여 학습을 진행한다.
                     self.agent.base_portfolio_value = self.agent.portfolio_value
-
                 if learning and delayed_reward != 0:        # 지연 보상이 발생한 경우
                     # 배치 학습 데이터 크기 (배치 학습에 사용할 배치 데이터 크기 결정)
                     batch_size = min(batch_size, max_memory)        # 배치 데이터 크기는 memory 변수의 크기인 max_memory 보다 작아야 한다.
                     # 배치 학습 데이터 생성
-                    x, y = self._get_batch(memory, batch_size, discount_factor, delayed_reward)     # _get_batch() 함수를 통해 배치 데이터를 준비한다.
-
+                    x, y = self._get_batch(
+                        memory, batch_size, discount_factor, delayed_reward)     # _get_batch() 함수를 통해 배치 데이터를 준비한다.
                     if len(x) > 0:
                         if delayed_reward > 0:      # 로그 기록을 위해 긍정 학습과 부정 학습 횟수를 카운트
                             pos_learning_cnt += 1
@@ -286,7 +287,6 @@ class PolicyLearner:
                         # 정책 신경망 갱신
                         loss += self.policy_network.train_on_batch(x, y)        # 준비한 배치 데이터로 학습 진행 --> 학습은 정책 신경망 객체의 train_on_batch() 함수로 수행한다.
                         memory_learning_idx.append([itr_cnt, delayed_reward])
-
                     batch_size = 0
                     # TODO 위의 batch 사이즈는 내가 아는 batch의 개념이 아닌 듯함 --> 왜 0으로 초기화를 하는지? 체크 필수!
                     # TODO <해결> 책 p.56 읽어볼 것 (내가 아는 batch의 개념이 맞기는 한데, 조건이 걸린 batch이다.)
@@ -296,21 +296,22 @@ class PolicyLearner:
 
             # 에포크 관련 정보 가시화
             num_epoches_digit = len(str(num_epoches))
-            epoch_str = str(epoch + 1).rjust(num_epoches_digit, '0')        # ex. epoch가 50이고, num_epoches_digit이 4라면 --> 0050이 된다.
+            epoch_str = str(epoch + 1).rjust(num_epoches_digit, '0')    # ex. epoch가 50이고, num_epoches_digit이 4라면 --> 0050이 된다.
 
             # 에포크 수행 결과 가시화
             self.visualizer.plot(
-                epoch_str = epoch_str, num_epoches=num_epoches, epsilon=epsilon,
-                action_list = Agent.ACTIONS, actions = memory_action,
-                num_stocks = memory_num_stocks, outvals = memory_prob,
-                exps = memory_exp_idx, learning = memory_learning_idx,
-                initial_balance = self.agent.initial_balance, pvs = memory_pv
+                epoch_str=epoch_str, num_epoches=num_epoches, epsilon=epsilon,
+                action_list=Agent.ACTIONS, actions=memory_action,
+                num_stocks=memory_num_stocks, outvals=memory_prob,
+                exps=memory_exp_idx, learning=memory_learning_idx,
+                initial_balance=self.agent.initial_balance, pvs=memory_pv
             )
             # 가시화한 에포크 수행 결과 저장
-            self.visualizer.save(os.path.join(epoch_summary_dir,
-                                              'epoch_summary_%s_%s.png' % (settings.timestr, epoch_str)))
+            self.visualizer.save(os.path.join(
+                epoch_summary_dir, 'epoch_summary_%s_%s.png' % (
+                    settings.timestr, epoch_str)))
 
-            #  에포크 관련 정보 로그 기록
+            # 에포크 관련 정보 로그 기록
             if pos_learning_cnt + neg_learning_cnt > 0:
                 loss /= pos_learning_cnt + neg_learning_cnt
             logger.info("[Epoch %s/%s]\tEpsilon:%.4f\tExpl._Ratio :%d/%d\t"       # #Expl. 은 "무작위 투자를 수행한 횟수 / 수행한 에포크 수(반복 카운팅 횟수)" 이다.
@@ -321,21 +322,20 @@ class PolicyLearner:
                             self.agent.num_buy, self.agent.num_sell, self.agent.num_hold,
                             self.agent.num_stocks,
                             locale.currency(self.agent.portfolio_value, grouping=True),
-                            pos_learning_cnt, neg_learning_cnt, loss
-            ))
+                            pos_learning_cnt, neg_learning_cnt, loss))
 
             # 학습 관련 (통계) 정보 갱신
-            max_portfolio_value = max(max_portfolio_value, self.agent.portfolio_value)      # max_portfolio_value의 초기값은 0이다. --> 에포크를 늘려가며 max포트폴리오 가치가 갱신되는 것.
+            max_portfolio_value = max(      # max_portfolio_value의 초기값은 0이다. --> 에포크를 늘려가며 max포트폴리오 가치가 갱신되는 것.
+                max_portfolio_value, self.agent.portfolio_value)
             if self.agent.portfolio_value > self.agent.initial_balance:
                 epoch_win_cnt += 1
 
-        ### 학습 반복 for문 종료 ###
-
+        ### 학습 반복 for문 종료 ###        
 
         # 최종 학습 (결과) 관련 정보 로그 기록
         logger.info("Max PV: %s, \t # Win: %d" % (
             locale.currency(max_portfolio_value, grouping=True), epoch_win_cnt))
-
+        
         ##### 여기까지가 fit() 함수의 영역이다. #####
 
 
