@@ -100,6 +100,7 @@ class PolicyLearner:
 
         # 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다른 반면, 학습 데이터 특징의 크기(17)와 에이전트 행동 수(2)는 고정되어있다.
 
+        # TODO for문의 'reward'가 Unused variable이다. --> 확인 필수
         for i, (sample, action, reward) in enumerate(       # action은 0(매수)과 1(매도)로 이루어져있다.
                 reversed(memory[-batch_size:])):
             x[i] = np.array(sample).reshape((-1, 1, self.num_features))     # 학습 데이터 특징 벡터를 지정하고,
