@@ -19,21 +19,26 @@ from visualizer import Visualizer
 logger = logging.getLogger(__name__)        # 특정 로거 설정
 locale.setlocale(locale.LC_ALL, 'ko_KR.UTF-8')
 
+
 class PolicyLearner:
+
     def __init__(self, stock_code, chart_data, training_data=None,
-                 min_trading_unit=1, max_trading_unit=2, delayed_reward_threshold=0.05, l_rate=0.01):
-        self.stock_code = stock_code
+                 min_trading_unit=1, max_trading_unit=2,
+                 delayed_reward_threshold=.05, l_rate=0.01):
+        self.stock_code = stock_code 
         self.chart_data = chart_data
 
         # 환경 객체
         self.environment = Environment(chart_data)
-
+        
         # 에이전트 객체
-        self.agent = Agent(self.environment, min_trading_unit=min_trading_unit,
-                           max_trading_unit=max_trading_unit, delayed_reward_threshold=delayed_reward_threshold)
+        self.agent = Agent(self.environment,
+                           min_trading_unit=min_trading_unit,
+                           max_trading_unit=max_trading_unit,
+                           delayed_reward_threshold=delayed_reward_threshold)
 
         # 학습 데이터
-        self.training_data = training_data
+        self.training_data = training_data 
         self.sample = None      # 여기서 sample도 training_data와 같이 17차원
         self.training_data_idx = -1
 
@@ -44,11 +49,11 @@ class PolicyLearner:
         #              --> "Sequential 클래스의 predict() 함수는 여러 샘플을 한번에 받아서 신경망의 출력을 반환한다. 하나의 샘플에 대한 결과만을 받고 싶어도 입력값을 샘플의 배열로 구성해야하기 때문에 2차원 배열로 재구성한다."
         self.num_features = self.training_data.shape[1] + self.agent.STATE_DIM
         # 정책 신경망 객체
-        self.policy_network = PolicyNetwork(input_dim=self.num_features,
-                                            output_dim=self.agent.NUM_ACTIONS, l_rate=l_rate)
-
+        self.policy_network = PolicyNetwork(
+            input_dim=self.num_features, output_dim=self.agent.NUM_ACTIONS, l_rate=l_rate)
+        
         # 가시화기 객체 (에포크마다 투자 결과 가시화)
-        self.visualizer = Visualizer()
+        self.visualizer = Visualizer()  
 
 
     # 에포크마다 호출하여 reset
@@ -72,7 +77,7 @@ class PolicyLearner:
             return self.sample                              # sample에 에이전트 상태(2개)를 추가하여 17개의 값으로 구성되도록 한다.
         return None
 
-
+    
     # TODO memory, sample, 그리고  batch_size가 정확히 무엇인지 알아야한다.
     # TODO <해결> memory = [(memory_sample[i], memory_action[i], memory_reward[i]) for i in list(range(len(memory_action)))[-max_memory:]]
     #                   =  즉 (각 거래일 idx마다의 데이터가 모여 만들어진) 학습 데이터 sample 배열 / 에이전트의 action 배열 / 즉시 reward 배열을 모아서 만든 2차원 배열
@@ -86,19 +91,21 @@ class PolicyLearner:
     #            batch_size: 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다.
     # 미니 배치 데이터 생성
     def _get_batch(self, memory, batch_size, discount_factor, delayed_reward):
-        # TODO 아래 np.zeros를 3차원이 아닌 2차원으로 만들면 안되나? --> np.zeros((batch_size, self.num_features))로.
-        # TODO <해결> 가운데 1을 없애고 2차원으로 만드는게 맞다. <-- "x 배열의 형태는 배치 데이터 크기, 학습 데이터 특징 크기로 2차원으로 구성된다."가 맞다.
-        # x = np.zeros((batch_size, 1, self.num_features))
-        x = np.zeros((batch_size, self.num_features))               # 일련의 학습 데이터(15) 및 에이전트 상태(2) (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
+        # TODO 아래 x의 np.zeros를 3차원이 아닌 2차원으로 만들면 안되나? --> np.zeros((batch_size, self.num_features))로.
+        # TODO <해결?> 가운데 1을 없애고 2차원으로 만드는게 맞다. <-- 책을 보면 "x 배열의 형태는 배치 데이터 크기, 학습 데이터 특징 크기로 2차원으로 구성된다."가 맞다.
+        # TODO <해결 아님> 가운데 1을 없애면, "expected lstm_1_input to have 3 dimensions, but got array with shape (60, 17)"와 같은 에러가 발생한다. 가운데 1이 있어야 한다. 
+        # x = np.zeros((batch_size, self.num_features))
+        x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터(15) 및 에이전트 상태(2) (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
         y = np.full((batch_size, self.agent.NUM_ACTIONS), 0.5)      # 일련의 지연 보상 (np.full() --> 첫 번째 인자는 shape이고(다차원일 경우 튜플로 넘겨야한다.), 두 번째 인자 값으로 배열을 채운다.
 
         # 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다른 반면, 학습 데이터 특징의 크기(17)와 에이전트 행동 수(2)는 고정되어있다.
 
-        for i, (sample, action, reward) in enumerate(reversed(memory[-batch_size:])):       # action은 0(매수)과 1(매도)로 이루어져있다.
+        for i, (sample, action, reward) in enumerate(       # action은 0(매수)과 1(매도)로 이루어져있다.
+                reversed(memory[-batch_size:])):
             x[i] = np.array(sample).reshape((-1, 1, self.num_features))     # 학습 데이터 특징 벡터를 지정하고,
             y[i, action] = (delayed_reward + 1) / 2                         # 지연 보상을 정답(=Label)으로 설정하여 학습/훈련 데이터 셋을 구성 --> 지연 보상이 1인 경우 1로 레이블을 지정하고, 지연 보상이 -1인 경우 0으로 레이블을 지정한다.
-            if discount_factor > 0 :
-                y[i, action] *= discount_factor ** i        # 더 과거에 더 큰 할인요인을 곱한다.
+            if discount_factor > 0:
+                y[i, action] *= discount_factor ** i    # 더 과거에 더 큰 할인요인을 곱한다.
         return x, y
 
 
@@ -121,9 +128,9 @@ class PolicyLearner:
     def fit(
         self, num_epoches=1000, max_memory=60, balance=10000000,
         discount_factor=0, start_epsilon=.5, learning=True):
-        logger.info("LearningRate: {l_rate}, DiscountFactor: {discount_factor}, "
-                    "TradingUnit: [{min_trading_unit}, {max_trading_unit}], "
-                    "DelayedRewardThreshold: {delayed_reward_threshold}".format(
+        logger.info("Learning Rate: {l_rate}, Discount Factor: {discount_factor}, "
+                    "Trading Unit[min,max]: [{min_trading_unit}, {max_trading_unit}], "
+                    "Delayed Reward Threshold: {delayed_reward_threshold}".format(
             l_rate=self.policy_network.l_rate,
             discount_factor=discount_factor,
             min_trading_unit=self.agent.min_trading_unit,
@@ -139,9 +146,9 @@ class PolicyLearner:
         epoch_summary_dir = os.path.join(
             settings.BASE_DIR, 'epoch_summary/%s/epoch_summary_%s' % (     # settings.BASE_DIR: 프로젝트 관련 파일들이 포함된 기본/루트 폴더 경로를 말한다.
                 self.stock_code, settings.timestr))     # settings.timestr: 폴더 이름에 포함할 날짜와 시간 - 문자열 형식: %Y%m%d%H%M%S
-        # epoch_summary_dir = os.path.join(     # --> 이렇게 코드를 작성하면 윈도우 계열, 리눅스 계열 OS에 상관없이 경로를 구성할 수 있다.
+        # epoch_summary_dir = os.path.join(         # --> 이렇게 코드를 작성하면 윈도우 계열, 리눅스 계열 OS에 상관없이 경로를 구성할 수 있다.
         #   settings.BASE_DIR, 'epoch_summary', '%s' % self.stock_code,
-        #                      'epoch_summary_%s' % settings.timestr)       
+        #                      'epoch_summary_%s' % settings.timestr)   
         if not os.path.isdir(epoch_summary_dir):
             os.makedirs(epoch_summary_dir)
 
@@ -174,14 +181,14 @@ class PolicyLearner:
             memory_action = []          # 행동
             memory_reward = []          # 즉시 보상
             memory_prob = []            # 정책 신경망의 출력
-            memory_pv = []              # 포트폴리오 가치   
+            memory_pv = []              # 포트폴리오 가치
             memory_num_stocks = []      # 보유 주식 수
-            
+
             memory_exp_idx = []         # 탐험 위치
             memory_learning_idx = []    # 학습 위치     # TODO memory_learning_idx가 무엇인지 정확히 파악 후 visualizer.py의 151번 줄 TODO 해결할 것 (151번줄에서 얘(memory_learning_idx == visualizer.py의 learning) 때문에 막힘)
                                                       # TODO <해결> 지연 보상(으로 학습한) 위치와 지연 보상 값으로 이루어진 배열 --> [[지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], [지연 보상 위치, 지연 보상 값], ...]
                                                       #            이 학습 위치 변수의 이름을 바꿔야 할 필요가 있는 것 같다. --> 아래에서 memory_learning_idx.append([itr_cnt, delayed_reward])가 실행되므로 memory_learning_idx_val로 바꾼다.
-
+            
             # 아래 코드를 보면 알겠지만 첫 에포크를 포함하여 에포크가 시작할 때마다 우선 모두 초기화(reset & clear)부터 하고 진행한다.
             # 환경, 에이전트, 정책 신경망, 정책 학습기 초기화 (이 클래스들은 각자 reset 함수를 정의했었음 - 다른 클래스들은 따로 reset 메서드를 정의하지 않았음)
             self.environment.reset()                                                    # (cf. Visualizer는 clear 함수로 초기화 함)
@@ -314,9 +321,9 @@ class PolicyLearner:
             # 에포크 관련 정보 로그 기록
             if pos_learning_cnt + neg_learning_cnt > 0:
                 loss /= pos_learning_cnt + neg_learning_cnt
-            logger.info("[Epoch %s/%s]\tEpsilon:%.4f\tExpl._Ratio :%d/%d\t"       # #Expl. 은 "무작위 투자를 수행한 횟수 / 수행한 에포크 수(반복 카운팅 횟수)" 이다.
-                        "#_Buy:%d\t#_Sell:%d\t#_Hold:%d\t"
-                        "#_Stocks:%d\tPV:%s\t"
+            logger.info("[Epoch %s/%s]\tEpsilon:%.4f\t#Expl.:%d/%d\t"       # #Expl. 은 "무작위 투자를 수행한 횟수 / 수행한 에포크 수(반복 카운팅 횟수)" 이다.
+                        "#Buy:%d\t#Sell:%d\t#Hold:%d\t"
+                        "#Stocks:%d\tPV:%s\t"
                         "POS:%s\tNEG:%s\tLoss:%10.6f" % (
                             epoch_str, num_epoches, epsilon, exploration_cnt, itr_cnt,
                             self.agent.num_buy, self.agent.num_sell, self.agent.num_hold,
@@ -330,12 +337,12 @@ class PolicyLearner:
             if self.agent.portfolio_value > self.agent.initial_balance:
                 epoch_win_cnt += 1
 
-        ### 학습 반복 for문 종료 ###        
+        ### 학습 반복 for문 종료 ###  
 
         # 최종 학습 (결과) 관련 정보 로그 기록
         logger.info("Max PV: %s, \t # Win: %d" % (
             locale.currency(max_portfolio_value, grouping=True), epoch_win_cnt))
-        
+
         ##### 여기까지가 fit() 함수의 영역이다. #####
 
 

@@ -1,0 +1,35 @@
+LR: 0.001, DF: 0, TU: [1, 2], DRT: 0.2
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+[Epoch 0001/1000]	Epsilon:0.5000	#Expl.:172/365	#Buy:134	#Sell:132	#Hold:99	#Stocks:2	PV:₩14,181,000	POS:5	NEG:1	Loss:  0.196521
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0002/1000]	Epsilon:0.4995	#Expl.:193/365	#Buy:148	#Sell:147	#Hold:70	#Stocks:1	PV:₩12,334,000	POS:4	NEG:2	Loss:  0.188997
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos

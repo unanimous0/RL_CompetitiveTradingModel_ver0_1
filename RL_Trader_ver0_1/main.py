@@ -8,7 +8,7 @@ import os
 import logging
 import settings
 import data_manager
-from policy_learner2 import PolicyLearner
+from policy_learner import PolicyLearner
 
 if __name__ == "__main__":
     stock_code = '005930'       # 삼성전자

@@ -1,0 +1,25 @@
+Learning Rate: 0.001, Discount Factor: 0, Trading Unit[min,max]: [1, 2], Delayed Reward Threshold: 0.2
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+[Epoch 0001/1000]	Epsilon:0.5000	#Expl.:165/365	#Buy:167	#Sell:163	#Hold:35	#Stocks:4	PV:₩10,659,000	POS:4	NEG:2	Loss:  0.185162
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0002/1000]	Epsilon:0.4995	#Expl.:181/365	#Buy:155	#Sell:153	#Hold:57	#Stocks:2	PV:₩9,847,000	POS:4	NEG:2	Loss:  0.182737

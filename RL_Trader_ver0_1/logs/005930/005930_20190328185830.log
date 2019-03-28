@@ -1,0 +1,190 @@
+LearningRate: 0.001, DiscountFactor: 0, TradingUnit: [1, 2], DelayedRewardThreshold: 0.2
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/Users/unanimous0/anaconda3/envs/VlackRock3.6_Env/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+[Epoch 0001/1000]	Epsilon:0.5000	Expl._Ratio :189/365	#_Buy:115	#_Sell:111	#_Hold:139	#_Stocks:4	PV:₩13,668,000	POS:5	NEG:1	Loss:  0.182343
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0002/1000]	Epsilon:0.4995	Expl._Ratio :208/365	#_Buy:112	#_Sell:112	#_Hold:141	#_Stocks:0	PV:₩13,140,000	POS:5	NEG:1	Loss:  0.180123
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0003/1000]	Epsilon:0.4990	Expl._Ratio :186/365	#_Buy:112	#_Sell:108	#_Hold:145	#_Stocks:4	PV:₩12,115,000	POS:5	NEG:1	Loss:  0.183272
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0004/1000]	Epsilon:0.4985	Expl._Ratio :179/365	#_Buy:104	#_Sell:101	#_Hold:160	#_Stocks:3	PV:₩12,039,000	POS:4	NEG:2	Loss:  0.184579
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0005/1000]	Epsilon:0.4980	Expl._Ratio :189/365	#_Buy:115	#_Sell:112	#_Hold:138	#_Stocks:3	PV:₩11,273,000	POS:4	NEG:2	Loss:  0.185432
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0006/1000]	Epsilon:0.4975	Expl._Ratio :184/365	#_Buy:105	#_Sell:101	#_Hold:159	#_Stocks:4	PV:₩12,675,000	POS:5	NEG:1	Loss:  0.185824
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0007/1000]	Epsilon:0.4970	Expl._Ratio :169/365	#_Buy:106	#_Sell:101	#_Hold:158	#_Stocks:5	PV:₩13,265,000	POS:4	NEG:2	Loss:  0.188983
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0008/1000]	Epsilon:0.4965	Expl._Ratio :169/365	#_Buy:95	#_Sell:90	#_Hold:180	#_Stocks:5	PV:₩12,880,000	POS:5	NEG:1	Loss:  0.193034
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0009/1000]	Epsilon:0.4960	Expl._Ratio :178/365	#_Buy:108	#_Sell:108	#_Hold:149	#_Stocks:0	PV:₩11,999,000	POS:4	NEG:2	Loss:  0.181821
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0010/1000]	Epsilon:0.4955	Expl._Ratio :212/365	#_Buy:113	#_Sell:109	#_Hold:143	#_Stocks:4	PV:₩12,009,000	POS:3	NEG:3	Loss:  0.182948
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0011/1000]	Epsilon:0.4950	Expl._Ratio :177/365	#_Buy:114	#_Sell:113	#_Hold:138	#_Stocks:1	PV:₩11,293,000	POS:4	NEG:2	Loss:  0.184165
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0012/1000]	Epsilon:0.4945	Expl._Ratio :177/365	#_Buy:109	#_Sell:105	#_Hold:151	#_Stocks:4	PV:₩12,105,000	POS:3	NEG:3	Loss:  0.187986
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0013/1000]	Epsilon:0.4940	Expl._Ratio :189/365	#_Buy:111	#_Sell:107	#_Hold:147	#_Stocks:4	PV:₩10,957,000	POS:4	NEG:2	Loss:  0.178064
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0014/1000]	Epsilon:0.4935	Expl._Ratio :177/365	#_Buy:108	#_Sell:103	#_Hold:154	#_Stocks:5	PV:₩13,731,000	POS:6	NEG:0	Loss:  0.187191
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0015/1000]	Epsilon:0.4930	Expl._Ratio :185/365	#_Buy:102	#_Sell:102	#_Hold:161	#_Stocks:0	PV:₩12,650,000	POS:5	NEG:1	Loss:  0.180078
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0016/1000]	Epsilon:0.4925	Expl._Ratio :180/365	#_Buy:115	#_Sell:112	#_Hold:138	#_Stocks:3	PV:₩11,857,000	POS:4	NEG:2	Loss:  0.187381
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+update_title_pos
+[Epoch 0017/1000]	Epsilon:0.4920	Expl._Ratio :197/365	#_Buy:122	#_Sell:117	#_Hold:126	#_Stocks:5	PV:₩14,822,000	POS:5	NEG:1	Loss:  0.187427
