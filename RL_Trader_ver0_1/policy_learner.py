@@ -24,7 +24,7 @@ class PolicyLearner:
 
     def __init__(self, stock_code, chart_data, training_data=None,
                  min_trading_unit=1, max_trading_unit=2,
-                 delayed_reward_threshold=.05, l_rate=0.01):
+                 delayed_reward_threshold=0.05, l_rate=0.01):
         self.stock_code = stock_code 
         self.chart_data = chart_data
 
@@ -46,7 +46,8 @@ class PolicyLearner:
         # TODO self.training_data.shape의 [1]이 왜 학습 데이터의 크기인지 확인
         # TODO <해결> shape가 2차원이면 (n,15)일 것이고, 여기서 행은 전체 갯수이고, 열의 갯수가 학습 데이터의 크기로 들어갈 특징의 갯수일 것이다.
         #            shape가 2차원인 이유는 policy_network.py에서 설명했다.
-        #              --> "Sequential 클래스의 predict() 함수는 여러 샘플을 한번에 받아서 신경망의 출력을 반환한다. 하나의 샘플에 대한 결과만을 받고 싶어도 입력값을 샘플의 배열로 구성해야하기 때문에 2차원 배열로 재구성한다."
+        #              --> "Sequential 클래스의 predict() 함수는 여러 샘플을 한번에 받아서 신경망의 출력을 반환한다. 
+        #                   하나의 샘플에 대한 결과만을 받고 싶어도 입력값을 샘플의 배열로 구성해야하기 때문에 2차원 배열로 재구성한다."
         self.num_features = self.training_data.shape[1] + self.agent.STATE_DIM
         # 정책 신경망 객체
         self.policy_network = PolicyNetwork(
@@ -87,12 +88,12 @@ class PolicyLearner:
     #                       memory = [(memory_sample[i], memory_action[i], memory_reward[i]) for i in list(range(len(memory_action)))]
     #                       memory = [(1, 6, 11), (2, 7, 12), (3, 8, 13), (4, 9, 14), (5, 10, 15)]
     #                       |
-    #            sample: training_data가 저장되므로 15(학습데이터)+2(상태데이터) 총 17개의 데이터를 같는 데이터)
+    #            sample: training_data가 저장되므로 15(학습데이터)+2(상태데이터) 총 17개의 데이터를 갖는 데이터)
     #            batch_size: 배치 데이터의 크기는 지연 보상이 발생할 때 결정되기 때문에 매번 다르다.
     # 미니 배치 데이터 생성
     def _get_batch(self, memory, batch_size, discount_factor, delayed_reward):
         # TODO 아래 x의 np.zeros를 3차원이 아닌 2차원으로 만들면 안되나? --> np.zeros((batch_size, self.num_features))로.
-        # TODO <해결?> 가운데 1을 없애고 2차원으로 만드는게 맞다. <-- 책을 보면 "x 배열의 형태는 배치 데이터 크기, 학습 데이터 특징 크기로 2차원으로 구성된다."가 맞다.
+        # TODO <해결??> 가운데 1을 없애고 2차원으로 만드는게 맞다. <-- 책을 보면 "x 배열의 형태는 배치 데이터 크기, 학습 데이터 특징 크기로 2차원으로 구성된다."가 맞다.
         # TODO <해결 아님> 가운데 1을 없애면, "expected lstm_1_input to have 3 dimensions, but got array with shape (60, 17)"와 같은 에러가 발생한다. 가운데 1이 있어야 한다. 
         # x = np.zeros((batch_size, self.num_features))
         x = np.zeros((batch_size, 1, self.num_features))            # 일련의 학습 데이터(15) 및 에이전트 상태(2) (np.zeros((1,2,3)) --> array([[[0., 0., 0.],[0., 0., 0.]]])이 된다. (인자는 튜플로 넘겨야한다. )
@@ -113,7 +114,7 @@ class PolicyLearner:
     # fit() 메서드: PolicyLearner 클래스의 핵심 함수
     """
     fit()의 Elements
-        max_memory:      배치(batch) 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열 (이 배열의 크기가 배치 학습 데이터의 크기와 같은 지 확인)
+        max_memory:      배치(batch) 학습 데이터를 만들기 위해 과거 데이터를 저장할 배열 (이 배열의 크기가 배치 학습 데이터의 크기와 같은지 확인)
         
         balance:         에이전트의 초기 투자 자본금을 정해주기 위한 인자
         

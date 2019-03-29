@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e7cd5c-ed60-42a8-a111-bcd4a4016451" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RL_CompetitiveTradingModel_ver0_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RL_CompetitiveTradingModel_ver0_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/test_field2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/test_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project/test_field.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL_Trader_ver0_1/environment.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL_Trader_ver0_1/environment.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,56 +15,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-              <folding>
-                <element signature="e#84#93#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="285" selection-start-line="285" selection-end-line="285" />
+            <state relative-caret-position="210">
+              <caret line="93" column="37" lean-forward="true" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
               <folding>
                 <element signature="e#145#154#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/visualizer.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -343,7 +302,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24171187" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -477,12 +435,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/visualizer.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Project/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -526,14 +479,21 @@
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test/environment_2.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field2.py">
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field2.py" />
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="1215">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+          <folding>
+            <element signature="e#84#93#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/test_field.py">
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/settings.py">
@@ -543,9 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/environment.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -553,20 +510,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-          <folding>
-            <element signature="e#84#93#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/visualizer.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/RL_Trader_ver0_1/policy_learner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="285" selection-start-line="285" selection-end-line="285" />
+        <state relative-caret-position="210">
+          <caret line="93" column="37" lean-forward="true" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
           <folding>
             <element signature="e#145#154#0" expanded="true" />
           </folding>

@@ -107,9 +107,9 @@ class Agent:
         # "포트폴리오 가치 비율" : 기준 포트폴리오 가치 대비 현재 포트폴리오 가치의 비율 (이때 기준 포트폴리오 가치는 직전에 목표 수익 또는 손익률을 달성했을 때의 포트폴리오 가치)
         # 이 포트폴리오 가치 비율이 0에 가까우면 손실이 큰 것이고, 1보다 크면 수익이 발생했다는 뜻이다.
         # 현재 수익률이 목표 수익률에 가까우면 매도 관점에서 투자할 수 있다. 즉 수익률이 투자 행동 결정에 영향을 줄 수 있기 때문에 이 값을 에이전트의 상태로 정하고 정책 신경망의 입력값에 포함한다.
-        self.ratio_portfolio_value = self.portfolio_value / self.initial_balance
+        # self.ratio_portfolio_value = self.portfolio_value / self.initial_balance
         #TODO 분모가 (self.initial_balance가 아닌) self.base_portfolio_value가 맞는 것 같으므로 확인해볼 것 (둘이 우선 0으로 같긴하다.) (책 설명으로는 아래 내가 쓴게 맞음)
-        # self.ratio_portfolio_value = self.portfolio_value / self.base_portfolio_value
+        self.ratio_portfolio_value = self.portfolio_value / self.base_portfolio_value
 
         return (self.ratio_hold, self.ratio_portfolio_value)
 
@@ -156,12 +156,13 @@ class Agent:
         # 디폴트 값이 True이며 아래 조건에 걸리면 False가 된다.
         validity = True
         if action == Agent.ACTION_BUY:
-            # (선택된 행동이 매수라면,) 적어도 1주를 살 수 있는지 확인
+            # (선택된 행동이 매수라면,) 적어도 최소 거래단위주를 살 수 있는지 확인
             if self.balance < (self.environment.get_price() * (1 + self.TRADING_CHARGE)) * self.min_trading_unit:     # 우리가 최소 거래 단위를 1로 해놨으니 self.min_trading_unit을
-                validity = False                                                                                    # 안 곱해도 되지만, 최소 거래 단위가 1보다 크면 꼭 곱해줘야한다.
+                validity = False                                                                                      # 안 곱해도 되지만, 최소 거래 단위가 1보다 크면 꼭 곱해줘야한다.
         elif action == Agent.ACTION_SELL:
             # (선택된 행동이 매도라면,) 매도할 주식 잔고가 있는지 확인
-            if self.num_stocks <= 0 :
+            # TODO 비교 기준이 0이 아니라, min_trading_unit가 되어야하지 않나?
+            if self.num_stocks <= 0:
                 validity = False
         return validity
 
@@ -169,6 +170,7 @@ class Agent:
     # 매수/매도 단위 결정
     # 정책 신경망이 결정한 행동의 확률(confidence)이 높을 수록 매수 또는 매도하는 단위를 크게 정해준다.
     # 높은 확률로 매수를 결정했으면 더 많은 주식을 매수하고, 높은 확률로 매도를 결정했으면 더 많은 보유 주식을 매도한다.
+    # TODO 인공지능이 아닌 인간이 매수/매도 확률을 계산할 때 어느 하나가 높게 나오는 이유는 모멘텀 등이 있을텐데, 이러한 요소를 학습 파라미터로 설정하면 학습 시 반영 가능?
     def decide_trading_unit(self, confidence):
         if np.isnan(confidence):
             return self.min_trading_unit
@@ -280,7 +282,7 @@ class Agent:
             invest_amount = curr_price * (1 + self.TRADING_CHARGE) * trading_unit
             self.balance -= invest_amount       # 보유 현금을 갱신
             self.num_stocks += trading_unit     # 보유 주식 수를 갱신
-            self.num_buy += 1       # 매수 횟수 증가
+            self.num_buy += 1                   # 매수 횟수 증가
 
         # 매도
         elif action == Agent.ACTION_SELL:
@@ -299,10 +301,10 @@ class Agent:
             invest_amount = (curr_price * (1 - (self.TRADING_TAX + self.TRADING_CHARGE))) * trading_unit
             self.balance += invest_amount       # 보유 현금을 갱신
             self.num_stocks -= trading_unit     # 보유 주식 수를 갱신
-            self.num_sell += 1      # 매도 횟수 증가
+            self.num_sell += 1                  # 매도 횟수 증가
 
         # 관망
-        # 관망은 아무 것도 하지 않으므로 보유 주식 수나 잔고에 영향을 미치지 않는다. 대신 가격 변동은 있을 수 있으므로 포트폴리오 가치가 변결 될 수 있다.
+        # 관망은 아무 것도 하지 않으므로 보유 주식 수나 잔고에 영향을 미치지 않는다. 대신 주가 변동은 있을 수 있으므로 포트폴리오 가치가 변경될 수 있다.
         elif action == Agent.ACTION_HOLD:
             self.num_hold += 1      # 관망 횟수 증가
 
@@ -310,10 +312,11 @@ class Agent:
         # profitloss: 기준 포트폴리오 가치에서 현재 포트폴리오 가치의 등락률을 계산한다.
         # base_portfolio_value: 기준 포트폴리오 가치는 직전 학습 시점의 포트폴리오 가치를 의미한다.
         self.portfolio_value = self.balance + (curr_price * self.num_stocks)      # 위의 과정을 통해 세 가지 변수 모두 값이 변경되었으므로 포트폴리오 가치를 갱신해준다.
-        profitloss = (self.portfolio_value - self.base_portfolio_value) / self.base_portfolio_value     # ratio
+        profitloss = (self.portfolio_value - self.base_portfolio_value) / self.base_portfolio_value     # 변화율
 
         # 즉시 보상 판단
         # TODO (profitloss가 0인 경우가 거의 없겠지만) 포트폴리오 가치의 등락률이 0인 경우에도 긍정 보상을 주는 경우는 재고의 여지가 있다고 판단된다.
+        # 사람의 성향에 따라 다르다고 판단. 위험기피자의 경우 0을 긍정적으로 여길 수 있으며, 위험선호자의 경우 0을 부정적으로 여길 수 있다.
         self.immediate_reward = 1 if profitloss >= 0 else -1
 
         # 지연 보상 판단
@@ -355,7 +358,7 @@ class Agent:
             지연 보상을 받을 때까지 즉시 보상들이 +1이 많아야 좋구나 라고 학습할 수 있도록 하기 위해 즉시와 지연으로 보상을 나누는 것
             그러니 profitloss는 같이 쓰는 것 맞다.
             
-        --> <정리>
+        --> <정리> (표 참고)
             위에서 한 질문은 즉시 보상과 지연 보상과의 관계를 잘못 이해한 것이다. 
             우선 즉시 보상이나 지연 보상이나 둘 다 profitloss를 쓰는 것이 맞다. 즉시 보상도 이전 포트폴리오 가치로 부터 현재 포트폴리오 가치의 변화를 계산해서 보상을 내려야하므로
             profitloss를 사용하는 것이 맞다.

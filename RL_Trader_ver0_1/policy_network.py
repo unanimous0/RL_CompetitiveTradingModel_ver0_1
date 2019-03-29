@@ -121,6 +121,23 @@ class PolicyNetwork:
     #   Returns: "Scalar training loss (if the model has a single output and no metrics) or list of scalars (if the model has multiple outputs and/or metrics).
     #   The attribute model.metrics_names will give you the display labels for the scalar outputs."
     #   출처: [https://keras.io/models/model/]
+    
+    # train_on_batch 또 다른 설명 (from stack overflow)
+    # "train_on_batch allows you to expressly update weights based on a collection of samples you provide, without regard to any fixed batch size. 
+    # You would use this in cases when that is what you want: to train on an explicit collection of samples. 
+    # You could use that approach to maintain your own iteration over multiple batches of a traditional training set 
+    # but allowing fit or fit_generator to iterate batches for you is likely simpler.
+    
+    # One case when it might be nice to use train_on_batch is for updating a pre-trained model on a single new batch of samples. 
+    # Suppose you've already trained and deployed a model, and sometime later you've received a new set of training samples previously never used. 
+    # You could use train_on_batch to directly update the existing model only on those samples. 
+    # Other methods can do this too, but it is rather explicit to use train_on_batch for this case."
+
+    # "train_on_batch() gives you greater control of the state of the LSTM, for example, 
+    # when using a stateful LSTM and controlling calls to model.reset_states() is needed. 
+    # You may have multi-series data and need to reset the state after each series, which you can do with train_on_batch(), 
+    # but if you used .fit() then the network would be trained on all the series of data without resetting the state. 
+    # There's no right or wrong, it depends on what data you're using, and how you want the network to behave."
     def train_on_batch(self, x, y):
         return self.model.train_on_batch(x, y)
 

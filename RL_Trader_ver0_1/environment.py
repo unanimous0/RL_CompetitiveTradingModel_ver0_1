@@ -17,6 +17,7 @@ get_price(): 현재 observation에서 종가를 획득
 
 class Environment:
     PRICE_IDX = 4   # The place of End-Price (Date, Open, High, Low, Close, Volume)
+    # PRICE_IDX = 5   # The place of End-Price (Date, Open, High, Low, Close, Adj Close, Volume)
 
 
     def __init__(self, chart_data=None):
@@ -59,7 +60,7 @@ class Environment:
 
     def get_price(self):
         if self.observation is not None:
-            return self.observation[self.PRICE_IDX]     # iloc()로 가져온 self.observation에는 D,O,H,L,C,V가 다 들어있으므로 종가의 인덱스를 통해 종가를 가져온다.
+            return self.observation[self.PRICE_IDX]     # iloc()로 가져온 self.observation에는 (D,) O,H,L,C,V가 다 들어있으므로 종가의 인덱스를 통해 종가를 가져온다.
         return None
 
     def set_chart_data(self, chart_data):
