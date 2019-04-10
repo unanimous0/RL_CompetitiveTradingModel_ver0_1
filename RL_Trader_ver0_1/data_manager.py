@@ -2,10 +2,56 @@
 
 # Author: EunHwan Koh
 
+import sqlite3
 import pandas as pd
 import numpy as np
 
-def load_chart_data(fpath="/Users/unanimous0/Desktop/000660_train.csv"):
+
+#==============================================
+# 데이터베이스에서 데이터 가져오기
+
+def load_chart_data_fromDB(stock_code):
+
+    # Connecting database 
+    conn = sqlite3.connect("/Users/unanimous0/kospi.db")
+    cur = conn.cursor()
+
+    # Executing SQL Query
+    stock_code_KS = stock_code + ".KS"
+    cur.execute("SELECT * FROM '{}';".format(stock_code_KS))
+
+    # Getting data
+    rows = cur.fetchall()
+    # Checking the data 
+    # for row in rows:
+    #     print(row)
+
+    # Processing the data table
+    header = ['date', 'open', 'high', 'low', 'close', 'volume']
+    chart_data = pd.DataFrame(rows, columns=header)
+
+    chart_data = chart_data[::-1]    # Sorting in reverse order by date
+
+    strType_date = chart_data['date'].astype('str')         # 날짜 타입을 문자열로 변환
+    dateType_date = strType_date.astype('datetime64[ns]')   # 날짜 포맷 변환
+    strDateType_date = dateType_date.astype('str')          # 날짜 포맷 문자열로 재변환
+    del chart_data['date']
+    chart_data.insert(loc=0, column='date', value=strDateType_date)
+
+    # 날짜로 인덱스 만들기    
+    # date = chart_data['date']
+    # date_list = list(date)
+    # del chart_data['date']
+    # chart_data.index = date_list
+
+
+    conn.close()
+
+    return chart_data
+#==============================================
+
+
+def load_chart_data_fromCSV(fpath="/Users/unanimous0/Desktop/000660_train.csv"):
     chart_data = pd.read_csv(fpath, thousands=',', header=None)
     chart_data.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
 
