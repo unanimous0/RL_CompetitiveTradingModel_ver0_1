@@ -27,9 +27,9 @@ if __name__ == "__main__":
 
     # 강화학습에 필요한 주식 데이터 준비
     # 1) csv 파일에서 데이터 불러오기
-    chart_data = data_manager.load_chart_data_fromCSV(os.path.join(settings.BASE_DIR, 'data/chart_data/{}.csv'.format(stock_code)))
+    # chart_data = data_manager.load_chart_data_fromCSV(os.path.join(settings.BASE_DIR, 'data/chart_data/{}.csv'.format(stock_code)))
     # 2) database에서 데이터 불러오기
-    # chart_data = data_manager.load_chart_data_fromDB(stock_code)
+    chart_data = data_manager.load_chart_data_fromDB(stock_code)
     prep_data = data_manager.preprocess(chart_data)     # 불러온 차트데이터 전처리하여 학습 데이터를 만들 준비
     training_data = data_manager.build_training_data(prep_data)     # 학습 데이터에 포함될 열들을 추가
                                                                     # 이 training_data는 차트 데이터의 열들, 전처리에서 추가된 열들, 학습 데이터의 열들이 모두 포함된 데이터이다.
